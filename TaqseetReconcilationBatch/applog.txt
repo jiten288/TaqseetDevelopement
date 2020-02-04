@@ -1,0 +1,10 @@
+INFO    2020-01-31 23:06:43,652 [main] com.reconcile.TaqseetReconcileUtillity  - Invalid Or No paramters passed
+INFO    2020-01-31 23:06:43,654 [main] com.reconcile.TaqseetReconcileUtillity  - Invalid Or No paramters passed
+INFO    2020-01-31 23:07:40,275 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
+INFO    2020-01-31 23:07:42,137 [main] com.reconcile.DBManager  - oracle.jdbc.driver.T4CConnection@236bc1eb
+INFO    2020-01-31 23:08:26,591 [main] com.reconcile.TaqseetReconcileUtillity  - Invalid Or No paramters passed
+INFO    2020-01-31 23:08:26,593 [main] com.reconcile.TaqseetReconcileUtillity  - Invalid Or No paramters passed
+INFO    2020-01-31 23:09:10,910 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran sadfdghfds
+INFO    2020-01-31 23:09:12,012 [main] com.reconcile.DBManager  - oracle.jdbc.driver.T4CConnection@35ee1bee
+INFO    2020-01-31 23:31:06,952 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran 
+INFO    2020-01-31 23:31:08,164 [main] com.reconcile.DBManager  - oracle.jdbc.driver.T4CConnection@35ee1bee

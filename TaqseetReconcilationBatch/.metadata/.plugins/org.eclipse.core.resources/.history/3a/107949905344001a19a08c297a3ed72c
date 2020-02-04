@@ -1,0 +1,87 @@
+package com.reconcile;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+public class TaqseetReconcileUtillity {
+	static Logger logger = Logger.getLogger(TaqseetReconcileUtillity.class);
+
+	public static void main(String[] batchParam) throws SQLException {
+
+		BasicConfigurator.configure();
+		Properties prop = new Properties();
+		try {
+			prop.load(PosServiceUtil.class.getClass().getResourceAsStream("/application.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		PropertyConfigurator.configure(prop);
+
+		Boolean dateParam = false;
+		Boolean tranParam = false;
+		String method=null;
+		String filepath=null;
+		
+		PosServiceUtil service = new PosServiceUtil();
+		
+		 if (batchParam.length==2){
+			 method = batchParam[0];
+			 filepath = batchParam[1];
+			if (method.equalsIgnoreCase("tran")){
+				tranParam=true;
+			}else if (method.equalsIgnoreCase("date")){
+				dateParam=true;
+				filepath = null;
+			}
+			else{
+				logger.info("Invalid Or No paramters passed");
+			}
+		}else{
+			logger.info("Invalid Or No paramters passed");
+		}
+		
+		
+		
+		
+		if (dateParam) {
+			logger.info("Call the Date Query" + method);
+
+			DBManager dbManager = DBManager.getInstance();
+			List<CancelledTransactionDAO> cancelledTrans = dbManager.getCancelledTransactionByDate();
+			// service.getTransactionStatus("2731174062");
+			// service.callPostTransactionReversal("1033660802", 2.25 , 132645, "2731174062");
+
+			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
+				String transactionStatus = service.getTransactionStatus(cancelledTransaction.getCivilId());
+				if(transactionStatus != null && transactionStatus.equalsIgnoreCase("OK")){
+				service.callPostTransactionReversal(cancelledTransaction.getCivilId(),cancelledTransaction.getReverseAmt()
+						, cancelledTransaction.getOtp(), cancelledTransaction.getRetailRefNo());
+				}
+			}
+
+		} else if (tranParam) {
+			logger.info("Call the trans Query  " + method + " " + filepath);
+			DBManager dbManager = DBManager.getInstance();
+			List<CancelledTransactionDAO> cancelledTrans = dbManager.getCancelledTransactionByTrans();
+			// service.getTransactionStatus("2731174062");
+			// service.callPostTransactionReversal("1033660802", 2.25 , 132645, "2731174062");
+
+			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
+				String transactionStatus = service.getTransactionStatus(cancelledTransaction.getCivilId());
+				if(transactionStatus != null && transactionStatus.equalsIgnoreCase("OK")){
+				service.callPostTransactionReversal(cancelledTransaction.getCivilId(),cancelledTransaction.getReverseAmt()
+						, cancelledTransaction.getOtp(), cancelledTransaction.getRetailRefNo());
+				}
+			}
+			
+		} else {
+			logger.info("Invalid Or No paramters passed");
+		}
+	}
+}

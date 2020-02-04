@@ -1,0 +1,284 @@
+package com.reconcile;
+
+import java.io.BufferedReader;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+/**
+ * @author RetailOMatric This class is to do database operation
+ */
+@SuppressWarnings("deprecation")
+public class DBManager {
+
+	private static DBManager dbManager;
+	static Logger logger = Logger.getLogger(DBManager.class);
+
+	private DBManager() {
+	}
+
+	public static DBManager getInstance() {
+		if (dbManager == null) {
+			dbManager = new DBManager();
+		}
+		return dbManager;
+	}
+
+	public Connection getConection() {
+		Connection con = null;
+		PosServiceUtil util = new PosServiceUtil();
+		StringBuilder jdbcUrl = new StringBuilder();
+		jdbcUrl.append("jdbc:oracle:thin:@");
+		jdbcUrl.append(util.getProperty("db.host") + ":");
+		jdbcUrl.append(util.getProperty("db.port") + ":");
+		jdbcUrl.append(util.getProperty("db.name"));
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(jdbcUrl.toString(), util.getProperty("db.username"),
+					util.getProperty("db.password"));
+		} catch (ClassNotFoundException | SQLException e) {
+			logger.error(e.getMessage());
+		}
+		return con;
+	}
+
+	public List<CancelledTransactionDAO> getCancelledTransactionByDate() {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		StringBuilder selectClause = this.readingSql("GetCancelledTransaction.sql");
+		StringBuilder whereClause = new StringBuilder();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = simpleDateFormat.format(new Date());
+		whereClause.append(" AND trn.DC_DY_BSN= '" + date + "'");
+		String sql = selectClause.append(whereClause.toString()).toString();
+		logger.info("Executing query: " + sql);
+		cancelledTransactions = executeQuery(sql, "ByDate");
+		return cancelledTransactions;
+	}
+
+	public List<CancelledTransactionDAO> getCancelledTransactionByTrans(String filePath) {
+
+		StringBuilder selectClause = this.readingSql("GetCancelledTransaction.sql");
+		StringBuilder whereClause = new StringBuilder();
+		whereClause.append("and uec.RET_REF_NUM in (");
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+
+		StringBuilder inCluase = new StringBuilder();
+		File valuesForInClause = new File(filePath);
+		if (valuesForInClause.exists()) {
+			try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+				String barcode = reader.readLine();
+				while (barcode != null) {
+					inCluase.append("'" + barcode + "',");
+					barcode = reader.readLine();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			logger.error("File not found in the given path: " + filePath);
+		}
+		whereClause.append(inCluase.substring(0, inCluase.length() - 1).toString() + ")");
+
+		String sql = selectClause.append(whereClause.toString()).toString();
+		logger.info("Executing query: " + sql);
+		cancelledTransactions = executeQuery(sql, "ByTrans");
+		return cancelledTransactions;
+	}
+
+	public List<CancelledTransactionDAO> getMissedCancelledTransactionByTrans() {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		StringBuilder selectClause = this.readingSql("MissingTransFromPOSServiceHandller.sql");
+		cancelledTransactions = executeQuery(selectClause.toString(), "missingTrans");
+		return cancelledTransactions;
+
+	}
+
+	public void updateStatusOfReversTransaction(String reatailRefNo) {
+
+		String updateStatement = "UPDATE UEC_TR_LTM_TAQSEET_TNDR_DTL SET rcn_status    = 'Y' WHERE ret_ref_num = ?";
+		try (Connection conn = dbManager.getConection();
+				PreparedStatement stmt = conn.prepareStatement(updateStatement)) {
+			stmt.setString(1, reatailRefNo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public List<CancelledTransactionDAO> executeQuery(String sql, String method) {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		DBManager dbManager = DBManager.getInstance();
+		ResultSet result = null;
+		try (Connection conn = dbManager.getConection(); Statement stmt = conn.createStatement()) {
+			logger.info("DB Connection created: " + conn);
+			result = stmt.executeQuery(sql);
+			if (method.equalsIgnoreCase("tran") || method.equalsIgnoreCase("date")) {
+				cancelledTransactions = getCancelledTransByTransAndDate(result);
+			} else {
+				cancelledTransactions = getMissingTransactions(result);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException sqlEx) {
+				}
+				result = null;
+			}
+		}
+		return cancelledTransactions;
+	}
+
+	public List<CancelledTransactionDAO> getCancelledTransByTransAndDate(ResultSet result) {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		try {
+			while (result.next()) {
+				CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+				cancelledTrans.setRetailRefNo(result.getString("retailRefNo"));
+				cancelledTrans.setRefNo(result.getString("refNo"));
+				cancelledTrans.setCivilId(result.getString("civilId"));
+				cancelledTrans.setReverseAmt(Double.parseDouble(result.getString("amount")));
+				cancelledTrans.setOtp(Integer.parseInt(result.getString("otp")));
+				cancelledTrans.setBusinesDate(result.getString("businessDate"));
+				cancelledTrans.setRegisterId(result.getString("wkstnId"));
+				cancelledTrans.setStoreId(result.getString("storeId"));
+				cancelledTrans.setTransactionId(Integer.parseInt(result.getString("transId")));
+				cancelledTransactions.add(cancelledTrans);
+			}
+		} catch (NumberFormatException | SQLException e) {
+			logger.error(e.getCause());
+		}
+		return cancelledTransactions;
+	}
+
+	public List<CancelledTransactionDAO> getMissingTransactions(ResultSet result) {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		try {
+			while (result.next()) {
+				Blob erpResponseBlob = result.getBlob("postTransResponse");
+				Blob posRequestBlob = result.getBlob("posRequest");
+				String erpResponse = new String(erpResponseBlob.getBytes(1l, (int) erpResponseBlob.length()));
+				String posRequest = new String(posRequestBlob.getBytes(1l, (int) posRequestBlob.length()));
+				logger.info(erpResponse);
+				logger.info(posRequest);
+
+				String mydata = posRequest;
+				Pattern pattern = Pattern.compile("mobileNumber=(.*?),");
+				Matcher matcher = pattern.matcher(mydata);
+				String civilId = "";
+				if (matcher.find()) {
+					civilId = matcher.group(1);
+					logger.info("Civil ID: " + civilId);
+				} else {
+					continue;
+				}
+				pattern = Pattern.compile("otp=(.*?),");
+				matcher = pattern.matcher(mydata);
+				String otp = "";
+				if (matcher.find()) {
+					otp = matcher.group(1);
+					logger.info("OTP: " + otp);
+				} else {
+					continue;
+				}
+
+				String retailRefNo = null;
+				String refNo = null;
+				Double amount = null;
+
+				JSONParser parser = new JSONParser();
+				JSONObject response = null;
+				try {
+
+					response = (JSONObject) parser.parse(erpResponse);
+					org.json.simple.JSONArray data = (org.json.simple.JSONArray) response.get("Data");
+					if (data != null && data.size() > 0) {
+						refNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("REF_NUM"));
+						retailRefNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("STORE_REF_NUM"));
+						amount = ((Double) ((org.json.simple.JSONObject) data.get(0)).get("AMOUNT"));
+					}
+
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				if (retailRefNo == null || refNo == null || amount == null) {
+					continue;
+				}
+
+				CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+				cancelledTrans.setRetailRefNo(retailRefNo);
+				cancelledTrans.setRefNo(refNo);
+				cancelledTrans.setCivilId(civilId);
+				cancelledTrans.setReverseAmt(amount.doubleValue());
+				cancelledTrans.setOtp(Integer.parseInt(otp));
+				cancelledTrans.setBusinesDate(result.getString("businessDate"));
+				cancelledTrans.setRegisterId(result.getString("wkstnId"));
+				cancelledTrans.setStoreId(result.getString("storeId"));
+				cancelledTrans.setTransactionId(Integer.parseInt(result.getString("transId")));
+				cancelledTransactions.add(cancelledTrans);
+			}
+		} catch (NumberFormatException | SQLException e) {
+			logger.error(e.getMessage());
+		} finally {
+
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException sqlEx) {
+				}
+				result = null;
+			}
+		}
+
+		return cancelledTransactions;
+	}
+
+	public StringBuilder readingSql(String queryName) {
+
+		InputStream inputStream = DBManager.class.getResourceAsStream("/" + queryName);
+		ByteArrayOutputStream result = new ByteArrayOutputStream();
+		byte[] buffer = new byte[1024];
+		int length;
+		try {
+			while ((length = inputStream.read(buffer)) != -1) {
+				result.write(buffer, 0, length);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return new StringBuilder(result.toString());
+
+	}
+
+}

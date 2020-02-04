@@ -1,0 +1,10 @@
+package com.reconcile;
+
+public class CancelledTransactionDAO {
+	
+	private String civilId;
+	private double reverseAmt;
+	private int otp;
+	private String retailRefNo;
+
+}

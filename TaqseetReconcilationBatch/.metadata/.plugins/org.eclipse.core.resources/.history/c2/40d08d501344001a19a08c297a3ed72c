@@ -1,0 +1,7 @@
+DEBUG   2020-01-31 15:47:22,108 [main] com.reconcile.TaqseetReconcileUtillity  - this is a debug log message
+INFO    2020-01-31 15:47:22,112 [main] com.reconcile.TaqseetReconcileUtillity  - this is a information log message
+WARN    2020-01-31 15:47:22,112 [main] com.reconcile.TaqseetReconcileUtillity  - this is a warning log message
+DEBUG   2020-01-31 15:48:44,518 [main] com.reconcile.TaqseetReconcileUtillity  - this is a debug log message
+INFO    2020-01-31 15:48:44,521 [main] com.reconcile.TaqseetReconcileUtillity  - this is a information log message
+WARN    2020-01-31 15:48:44,521 [main] com.reconcile.TaqseetReconcileUtillity  - this is a warning log message
+INFO    2020-01-31 15:48:44,522 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Query

@@ -1,0 +1,34 @@
+package com.reconcile;
+
+public class CancelledTransactionDAO {
+	
+	private String civilId;
+	private double reverseAmt;
+	private int otp;
+	public String getCivilId() {
+		return civilId;
+	}
+	public void setCivilId(String civilId) {
+		this.civilId = civilId;
+	}
+	public double getReverseAmt() {
+		return reverseAmt;
+	}
+	public void setReverseAmt(double reverseAmt) {
+		this.reverseAmt = reverseAmt;
+	}
+	public int getOtp() {
+		return otp;
+	}
+	public void setOtp(int otp) {
+		this.otp = otp;
+	}
+	public String getRetailRefNo() {
+		return retailRefNo;
+	}
+	public void setRetailRefNo(String retailRefNo) {
+		this.retailRefNo = retailRefNo;
+	}
+	private String retailRefNo;
+
+}

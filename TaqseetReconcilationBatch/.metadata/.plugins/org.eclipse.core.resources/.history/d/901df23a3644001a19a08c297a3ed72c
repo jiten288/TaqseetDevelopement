@@ -1,0 +1,149 @@
+package com.reconcile;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Properties;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+@SuppressWarnings("deprecation")
+public class PosServiceUtil {
+
+
+	public void callPosService(String serviceURL, String requestBody) {
+		try {
+			HttpURLConnection conn;
+
+			conn = APIConfig(serviceURL);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Type", "application/json; utf-8");
+			conn.setRequestProperty("Accept", "application/json");
+			conn.setDoOutput(true);
+
+			try (OutputStream os = conn.getOutputStream()) {
+				byte[] input = requestBody.getBytes("utf-8");
+				os.write(input, 0, input.length);
+			}
+
+			System.out.println("Calling service...............");
+			if (conn.getResponseCode() != 200) {
+				throw new RuntimeException("Client - Request Failed -  HTTP error code : " + conn.getResponseCode());
+			} else {
+				try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+					
+					org.json.simple.JSONObject response = (org.json.simple.JSONObject) new JSONParser().parse(br);
+
+					System.out.println(response.toString());
+				} catch (Exception e) {
+
+				}
+			}
+			conn.disconnect();
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	public static HttpURLConnection APIConfig(String serviceUrl) throws IOException {
+
+		URL url = new URL(serviceUrl);
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setDoOutput(true);
+		conn.setRequestProperty("Authorization", "NoAuth");
+		conn.setRequestProperty("Content-Type", "application/json; charset=utf8");
+		conn.setRequestProperty("Accept", "application/json");
+		return conn;
+	}
+
+	public void callSendOtpToClient() {
+		try {
+
+			String serviceURL = this.getProperty("service.host") + this.getProperty("sendotptoclient.endpoint");
+			JSONObject json = new JSONObject();
+
+			json.put("requestData", getRequestData());
+			json.put("mobileNo", "1033660802");
+
+			this.callPosService(serviceURL, json.toString());
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void callPostTransaction() {
+
+		try {
+
+			String serviceURL = this.getProperty("service.host") + this.getProperty("postTransaction.endpoint");
+			JSONObject json = new JSONObject();
+
+			json.put("requestData", getRequestData());
+			json.put("mobileNumber", "1033660802");
+			json.put("amount", 5.00);
+			json.put("otp", 132645);
+			json.put("retailerRefNo", "REF_EXT_0500");
+
+			this.callPosService(serviceURL, json.toString());
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void callPostTransactionReversal() {
+
+		try {
+
+			String serviceURL = this.getProperty("service.host") + this.getProperty("posttransactionreversal.endpoint");
+			JSONObject json = new JSONObject();
+
+			json.put("requestData", getRequestData());
+			json.put("mobileNumber", "1033660802");
+			json.put("reverseAmount", 5.00);
+			json.put("otp", 132645);
+			json.put("refNumber", "451174062");
+			this.callPosService(serviceURL, json.toString());
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public String getProperty(String key) {
+
+		Properties prop = new Properties();
+		try {
+			prop.load(PosServiceUtil.class.getClass().getResourceAsStream("/service.properties"));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		return prop.getProperty(key);
+	}
+	
+	public PosRequestDAO getRequestData() {
+		PosRequestDAO requestDAO = new PosRequestDAO();
+		requestDAO.setApiKey(
+				"d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM");
+		requestDAO.setBusinesDate("2019-04-28T14:45:15");
+		requestDAO.setRegisterId("1");
+		requestDAO.setStoreId("1001");
+		requestDAO.setTransactionId(111);
+
+		return requestDAO;
+	}
+
+
+}

@@ -1,0 +1,25 @@
+SELECT trn.ai_trn transId,
+   trn.ID_WS wkstnId,
+   trn.ID_STR_RT storeId,
+   trn.DC_DY_BSN businessDate,
+  uec.RET_REF_NUM retailRefNo,
+  uec.REF_NUM refNo,
+  uec.CIVILID civilId,
+  uec.otp otp,
+  uec.TY_TND,
+  uec.AI_LN_ITM,
+  trn.SC_TRN trnId,
+  trl.MO_ITM_LN_TND amount
+FROM TR_TRN trn
+INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
+ON uec.ai_trn    = trn.ai_trn
+AND uec.ID_WS    = trn.ID_WS
+AND uec.ID_STR_RT=trn.ID_STR_RT
+AND uec.DC_DY_BSN=trn.DC_DY_BSN
+INNER JOIN TR_LTM_TND trl
+ON uec.ai_trn    = trl.ai_trn
+AND uec.ID_WS    = trl.ID_WS
+AND uec.ID_STR_RT=trl.ID_STR_RT
+AND uec.DC_DY_BSN=trl.DC_DY_BSN
+WHERE trn.SC_TRN   = '3'
+AND uec.ty_tnd   = 'MNYO'

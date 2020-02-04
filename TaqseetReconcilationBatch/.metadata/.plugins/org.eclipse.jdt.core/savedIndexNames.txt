@@ -1,0 +1,20 @@
+INDEX VERSION 1.127+D:\Extra\TaqseetReconciliationBatch\.metadata\.plugins\org.eclipse.jdt.core
+4013096401.index
+1774861636.index
+3292687077.index
+3660600250.index
+1480427931.index
+2935375851.index
+2852472951.index
+330285914.index
+3047276003.index
+555545199.index
+2455829093.index
+2034717839.index
+3432063277.index
+475362427.index
+750846369.index
+611333803.index
+992367416.index
+1301711900.index
+855665843.index

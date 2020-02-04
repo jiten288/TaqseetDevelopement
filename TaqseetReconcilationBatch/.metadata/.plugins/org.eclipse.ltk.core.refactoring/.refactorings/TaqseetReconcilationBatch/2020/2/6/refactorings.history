@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TaqseetReconcilationBatch/resources/ReconcileQueries.sql&apos; to &apos;MissingTransFromPOSServiceHandller.sql&apos;" description="Rename resource &apos;ReconcileQueries.sql&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resources/ReconcileQueries.sql" name="MissingTransFromPOSServiceHandller.sql" stamp="1580753492887" updateReferences="true"/>
+</session>

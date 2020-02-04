@@ -1,0 +1,4 @@
+service.host=http://localhost:7001/PosServiceHandller/
+sendotptoclient.endpoint=v1/sendOtpToClient
+postTransaction.endpoint=v1/postTransaction
+posttransactionreversal.endpoint=v1/postTransactionReversal
