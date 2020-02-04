@@ -1,7 +1,6 @@
 package com.reconcile;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
 
@@ -10,89 +9,89 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 public class TaqseetReconcileUtillity {
+
 	static Logger logger = Logger.getLogger(TaqseetReconcileUtillity.class);
 
-	public static void main(String[] batchParam) throws SQLException {
+	public static void main(String[] batchParam) {
 
 		configureLog4j();
 		Boolean dateParam = false;
 		Boolean tranParam = false;
 		Boolean missedTranParam = false;
-		String method=null;
-		String filepath=null;
-		
-		PosServiceUtil service = new PosServiceUtil();
-		
-		 if (batchParam.length==2){
-			 method = batchParam[0];
-			 filepath = batchParam[1];
-			if (method.equalsIgnoreCase("ByTrans")){
-				tranParam=true;
-			}else if (method.equalsIgnoreCase("ByDate")){
-				dateParam=true;
+		String method = null;
+		String filepath = null;
+
+		if (batchParam.length == 2) {
+			method = batchParam[0];
+			filepath = batchParam[1];
+			if (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS)) {
+				if (!filepath.isEmpty()) {
+					tranParam = true;
+				} else {
+					logger.error("Filepath is empty");
+				}
+			} else if (method.equalsIgnoreCase(ReconcileBatchConstants.DATE)) {
+				dateParam = true;
 				filepath = null;
-			}else if (method.equalsIgnoreCase("MissingTrans")){
-				missedTranParam=true;
+			} else if (method.equalsIgnoreCase(ReconcileBatchConstants.MISSINGTRANS)) {
+				missedTranParam = true;
 				filepath = null;
+			} else {
+				logger.error("Invalid Or No paramters passed. Valid parameters are: " + ReconcileBatchConstants.TRANS + ", "
+						+ ReconcileBatchConstants.DATE + ", " + ReconcileBatchConstants.MISSINGTRANS);
+				System.exit(0);
 			}
-			else{
-				logger.info("Invalid Or No paramters passed");
-			}
-		}else{
-			logger.info("Invalid Or No paramters passed");
+		} else {
+			logger.error("Invalid Or No paramters passed. Valid parameters are: " + ReconcileBatchConstants.TRANS + ","
+					+ ReconcileBatchConstants.DATE + "," + ReconcileBatchConstants.MISSINGTRANS);
+			System.exit(0);
 		}
-		
+
 		if (dateParam) {
-			
+
 			logger.info("Call the Date Query" + method);
 			logger.info("----------------Start---------------------");
 			DBManager dbManager = DBManager.getInstance();
 			List<CancelledTransactionDAO> cancelledTrans = dbManager.getCancelledTransactionByDate();
-			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
-				boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
-				if(transactionStatus){
-				service.callPostTransactionReversal(cancelledTransaction);
-				}
+			if(cancelledTrans.size()==0){
+				logger.info("No Transaction Found.");
+			}else{
+				processReverseTransctions(cancelledTrans,method);
 			}
+			
 			logger.info("----------------End---------------------");
 
 		} else if (tranParam) {
-			
+
 			logger.info("Call the trans Query  " + method + " " + filepath);
 			logger.info("----------------Start---------------------");
 			DBManager dbManager = DBManager.getInstance();
 			List<CancelledTransactionDAO> cancelledTrans = dbManager.getCancelledTransactionByTrans(filepath);
-			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
-				boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
-				if( transactionStatus){
-				service.callPostTransactionReversal(cancelledTransaction);
-				}
+			if(cancelledTrans.size()==0){
+				logger.info("No Transaction Found.");
+			}else{
+				processReverseTransctions(cancelledTrans,method);
 			}
-			logger.info("----------------End---------------------");
-			
-		} 
-		else if (missedTranParam) {
-			
-			logger.info("Call the missing transaction Query  " + method + " " + filepath);
+
+		} else if (missedTranParam) {
+
+			logger.info("Call the missing transaction Query  " + method);
 			logger.info("----------------Start---------------------");
 			DBManager dbManager = DBManager.getInstance();
 			List<CancelledTransactionDAO> cancelledTrans = dbManager.getMissedCancelledTransactionByTrans();
-			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
-				boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
-				if( transactionStatus){
-				service.callPostTransactionReversal(cancelledTransaction);
-				}
+			if(cancelledTrans.size()==0){
+				logger.info("No Transaction Found.");
+				
+			}else{
+				processReverseTransctions(cancelledTrans,method);
 			}
 			logger.info("----------------End---------------------");
-			
-		} else {
-			logger.info("Invalid Or No paramters passed");
 		}
-		
+
 	}
 
 	private static void configureLog4j() {
-		
+
 		BasicConfigurator.configure();
 		Properties prop = new Properties();
 		try {
@@ -101,6 +100,16 @@ public class TaqseetReconcileUtillity {
 			e.printStackTrace();
 		}
 		PropertyConfigurator.configure(prop);
+	}
+	
+	private static void processReverseTransctions(List<CancelledTransactionDAO> cancelledTrans, String method){
 		
+		PosServiceUtil service = new PosServiceUtil();
+		for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
+			boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
+			if (transactionStatus) {
+				service.callPostTransactionReversal(cancelledTransaction, method);
+			}
+		}
 	}
 }
