@@ -1,5 +1,9 @@
 package com.reconcile;
 
+/**
+ * @author RetailOMatrix
+ * This is a DAO class to map the result from DB.
+ */
 public class CancelledTransactionDAO {
 	
 	private String civilId;

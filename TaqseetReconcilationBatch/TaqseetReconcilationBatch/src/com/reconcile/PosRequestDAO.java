@@ -1,5 +1,10 @@
 package com.reconcile;
 
+/**
+ * @author RetailOMatrix
+ *  This is a DAO classes to send the required information 
+ *	in the request.
+ */
 public class PosRequestDAO {
 	
 	private String storeId;

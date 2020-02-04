@@ -14,6 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * @author RetailOMatrix
+ * This class is created to handle the web service calls
+ *
+ */
 @SuppressWarnings("deprecation")
 public class PosServiceUtil {
 

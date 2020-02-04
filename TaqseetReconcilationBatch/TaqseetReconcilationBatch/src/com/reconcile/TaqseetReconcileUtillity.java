@@ -8,6 +8,11 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+/**
+ * @author RetailOMatrix
+ * This class is created to start the reconciliation batch.
+ *
+ */
 public class TaqseetReconcileUtillity {
 
 	static Logger logger = Logger.getLogger(TaqseetReconcileUtillity.class);
@@ -72,6 +77,7 @@ public class TaqseetReconcileUtillity {
 			}else{
 				processReverseTransctions(cancelledTrans,method);
 			}
+			logger.info("----------------End---------------------");
 
 		} else if (missedTranParam) {
 

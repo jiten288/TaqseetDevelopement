@@ -27,7 +27,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * @author RetailOMatric This class is to do database operation
+ * @author RetailOMatrix 
+ *  
+ *  This class is created to do database operation
  */
 @SuppressWarnings("deprecation")
 public class DBManager {
@@ -190,8 +192,8 @@ public class DBManager {
 				Blob posRequestBlob = result.getBlob(ReconcileBatchConstants.INBOUNDPOSREQCOL);
 				String erpResponse = new String(erpResponseBlob.getBytes(1l, (int) erpResponseBlob.length()));
 				String posRequest = new String(posRequestBlob.getBytes(1l, (int) posRequestBlob.length()));
-				logger.info(erpResponse);
-				logger.info(posRequest);
+				logger.debug(erpResponse);
+				logger.debug(posRequest);
 
 				String mydata = posRequest;
 				Pattern pattern = Pattern.compile("mobileNumber=(.*?),");
@@ -199,7 +201,7 @@ public class DBManager {
 				String civilId = "";
 				if (matcher.find()) {
 					civilId = matcher.group(1);
-					logger.info("Civil ID: " + civilId);
+					logger.debug("Civil ID: " + civilId);
 				} else {
 					continue;
 				}
@@ -208,7 +210,7 @@ public class DBManager {
 				String otp = "";
 				if (matcher.find()) {
 					otp = matcher.group(1);
-					logger.info("OTP: " + otp);
+					logger.debug("OTP: " + otp);
 				} else {
 					continue;
 				}
