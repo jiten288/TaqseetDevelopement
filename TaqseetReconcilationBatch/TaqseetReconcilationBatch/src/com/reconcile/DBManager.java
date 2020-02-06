@@ -27,9 +27,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * @author RetailOMatrix 
- *  
- *  This class is created to do database operation
+ * @author RetailOMatrix
+ * 
+ *         This class is created to do database operation
  */
 @SuppressWarnings("deprecation")
 public class DBManager {
@@ -122,15 +122,22 @@ public class DBManager {
 	public void updateStatusOfReversTransaction(String reatailRefNo) {
 
 		String updateStatement = "UPDATE UEC_TR_LTM_TAQSEET_TNDR_DTL SET rcn_status = 'Y' WHERE ret_ref_num = ?";
+		logger.debug("Executing update statement: " + updateStatement + " [" + reatailRefNo + "]");
 		try (Connection conn = dbManager.getConection();
 				PreparedStatement stmt = conn.prepareStatement(updateStatement)) {
 			stmt.setString(1, reatailRefNo);
+			int noOfRecordsUpdated = stmt.executeUpdate();
+			if (noOfRecordsUpdated > 0) {
+				logger.info("No of records updated: " + noOfRecordsUpdated);
+				logger.info("Status has been updated successfully.");
+			}
 		} catch (SQLException e) {
+			logger.error(e.toString());
 			logger.error(e.getMessage());
 		}
 
 	}
-	
+
 	public List<CancelledTransactionDAO> executeQuery(String sql, String method) {
 
 		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
@@ -139,7 +146,8 @@ public class DBManager {
 		try (Connection conn = dbManager.getConection(); Statement stmt = conn.createStatement()) {
 			logger.debug("Connected to DB successfully.");
 			result = stmt.executeQuery(sql);
-			if (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS) || method.equalsIgnoreCase(ReconcileBatchConstants.DATE)) {
+			if (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS)
+					|| method.equalsIgnoreCase(ReconcileBatchConstants.DATE)) {
 				cancelledTransactions = getCancelledTransByTransAndDate(result);
 			} else {
 				cancelledTransactions = getMissingTransactions(result);
@@ -165,17 +173,26 @@ public class DBManager {
 		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
 		try {
 			while (result.next()) {
-				CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
-				cancelledTrans.setRetailRefNo(result.getString(ReconcileBatchConstants.RETAILREFCOL));
-				cancelledTrans.setRefNo(result.getString(ReconcileBatchConstants.REFNOCOL));
-				cancelledTrans.setCivilId(result.getString(ReconcileBatchConstants.CIVILIDCOL));
-				cancelledTrans.setReverseAmt(Double.parseDouble(result.getString(ReconcileBatchConstants.AMOUNTCOL)));
-				cancelledTrans.setOtp(Integer.parseInt(result.getString(ReconcileBatchConstants.OTPCOL)));
-				cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
-				cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
-				cancelledTrans.setStoreId(result.getString(ReconcileBatchConstants.STOREIDCOL));
-				cancelledTrans.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
-				cancelledTransactions.add(cancelledTrans);
+				try {
+					String retailRefNo = result.getString(ReconcileBatchConstants.RETAILREFCOL);
+					String civilId = result.getString(ReconcileBatchConstants.CIVILIDCOL);
+					logger.info(retailRefNo);
+					CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+					cancelledTrans.setRetailRefNo(retailRefNo);
+					cancelledTrans.setRefNo(result.getString(ReconcileBatchConstants.REFNOCOL));
+					cancelledTrans.setCivilId(civilId);
+					cancelledTrans
+							.setReverseAmt(Double.parseDouble(result.getString(ReconcileBatchConstants.AMOUNTCOL)));
+					cancelledTrans.setOtp(Integer.parseInt(result.getString(ReconcileBatchConstants.OTPCOL)));
+					cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
+					cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
+					cancelledTrans.setStoreId(result.getString(ReconcileBatchConstants.STOREIDCOL));
+					cancelledTrans
+							.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
+					cancelledTransactions.add(cancelledTrans);
+				} catch (NumberFormatException ex) {
+					logger.error(ex.toString());
+				}
 			}
 		} catch (NumberFormatException | SQLException ex) {
 			logger.error(ex.getMessage());
@@ -248,7 +265,8 @@ public class DBManager {
 				cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
 				cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
 				cancelledTrans.setStoreId(result.getString(ReconcileBatchConstants.STOREIDCOL));
-				cancelledTrans.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
+				cancelledTrans
+						.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
 				cancelledTransactions.add(cancelledTrans);
 			}
 		} catch (NumberFormatException | SQLException e) {

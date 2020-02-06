@@ -23,3 +23,4 @@ AND uec.ID_STR_RT=trl.ID_STR_RT
 AND uec.DC_DY_BSN=trl.DC_DY_BSN
 WHERE trn.SC_TRN   = '3'
 AND uec.ty_tnd   = 'MNYO'
+AND uec.rcn_status = 'N'
