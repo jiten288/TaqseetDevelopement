@@ -1,0 +1,22 @@
+package com.reconcile;
+
+public class ReconcileBatchConstants {
+	
+	/*public static String TRANS = "ByTrans";
+	public static String DATE = "ByDate";
+	public static String MISSINGTRANS = "MissingTrans";
+	public static String RETAILREFCOL = "retailRefNo";
+	public static String REFNOCOL = "refNo";
+	public static String CIVILIDCOL = "civilId";
+	public static String AMOUNTCOL = "amount";
+	public static String OTPCOL = "otp";*/
+	public static String BUSINESSDATECOL = "businessDate";
+	public static String REGISTERIDCOL = "wkstnId";
+	public static String STOREIDCOL = "storeId";
+	public static String TRANSSEQCOL = "transId";
+	public static String INDBOUNDERPRESPCOL = "postTransResponse";
+	public static String INBOUNDPOSREQCOL = "posRequest";
+	public static String SEQUENCE_ID_COL = "sequnceId";
+	
+	
+}

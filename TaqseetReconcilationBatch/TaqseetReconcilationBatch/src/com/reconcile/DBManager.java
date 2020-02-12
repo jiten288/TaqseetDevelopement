@@ -1,10 +1,6 @@
 package com.reconcile;
 
-import java.io.BufferedReader;
-
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -14,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,67 +59,24 @@ public class DBManager {
 		return con;
 	}
 
-	public List<CancelledTransactionDAO> getCancelledTransactionByDate() {
-
-		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
-		StringBuilder selectClause = this.readingSql("GetCancelledTransaction.sql");
-		StringBuilder whereClause = new StringBuilder();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String date = simpleDateFormat.format(new Date());
-		whereClause.append(" AND trn.DC_DY_BSN= '" + date + "'");
-		String sql = selectClause.append(whereClause.toString()).toString();
-		logger.debug("Executing query: " + sql);
-		cancelledTransactions = executeQuery(sql, ReconcileBatchConstants.DATE);
-		return cancelledTransactions;
-	}
-
-	public List<CancelledTransactionDAO> getCancelledTransactionByTrans(String filePath) {
-
-		StringBuilder selectClause = this.readingSql("GetCancelledTransaction.sql");
-		StringBuilder whereClause = new StringBuilder();
-		whereClause.append("and uec.RET_REF_NUM in (");
-		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
-
-		StringBuilder inCluase = new StringBuilder();
-		File valuesForInClause = new File(filePath);
-		if (valuesForInClause.exists()) {
-			try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-				String barcode = reader.readLine();
-				while (barcode != null) {
-					inCluase.append("'" + barcode + "',");
-					barcode = reader.readLine();
-				}
-			} catch (IOException e) {
-				logger.error(e.getMessage());
-			}
-		} else {
-			logger.error("File not found in the given path: " + filePath);
-			return cancelledTransactions;
-		}
-		whereClause.append(inCluase.substring(0, inCluase.length() - 1).toString() + ")");
-
-		String sql = selectClause.append(whereClause.toString()).toString();
-		logger.debug("Executing query: " + sql);
-		cancelledTransactions = executeQuery(sql, ReconcileBatchConstants.TRANS);
-		return cancelledTransactions;
-	}
+	
 
 	public List<CancelledTransactionDAO> getMissedCancelledTransactionByTrans() {
 
 		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
 		StringBuilder selectClause = this.readingSql("MissingTransFromPOSServiceHandller.sql");
-		cancelledTransactions = executeQuery(selectClause.toString(), ReconcileBatchConstants.MISSINGTRANS);
+		cancelledTransactions = executeQuery(selectClause.toString());
 		return cancelledTransactions;
 
 	}
 
-	public void updateStatusOfReversTransaction(String reatailRefNo) {
+	public void updateStatusOfReverseTransaction(int sequenceId) {
 
-		String updateStatement = "UPDATE UEC_TR_LTM_TAQSEET_TNDR_DTL SET rcn_status = 'Y' WHERE ret_ref_num = ?";
-		logger.debug("Executing update statement: " + updateStatement + " [" + reatailRefNo + "]");
+		String updateStatement = "UPDATE EXTRA_POS_SERVICE_HANDLER SET rcn_status = 'Y' WHERE SEQUENCE_ID = ?";
+		logger.debug("Executing update statement: " + updateStatement + " [" + sequenceId + "]");
 		try (Connection conn = dbManager.getConection();
 				PreparedStatement stmt = conn.prepareStatement(updateStatement)) {
-			stmt.setString(1, reatailRefNo);
+			stmt.setInt(1, sequenceId);
 			int noOfRecordsUpdated = stmt.executeUpdate();
 			if (noOfRecordsUpdated > 0) {
 				logger.info("No of records updated: " + noOfRecordsUpdated);
@@ -138,7 +89,7 @@ public class DBManager {
 
 	}
 
-	public List<CancelledTransactionDAO> executeQuery(String sql, String method) {
+	public List<CancelledTransactionDAO> executeQuery(String sql) {
 
 		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
 		DBManager dbManager = DBManager.getInstance();
@@ -146,12 +97,9 @@ public class DBManager {
 		try (Connection conn = dbManager.getConection(); Statement stmt = conn.createStatement()) {
 			logger.debug("Connected to DB successfully.");
 			result = stmt.executeQuery(sql);
-			if (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS)
-					|| method.equalsIgnoreCase(ReconcileBatchConstants.DATE)) {
-				cancelledTransactions = getCancelledTransByTransAndDate(result);
-			} else {
+			
 				cancelledTransactions = getMissingTransactions(result);
-			}
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -168,38 +116,8 @@ public class DBManager {
 		return cancelledTransactions;
 	}
 
-	public List<CancelledTransactionDAO> getCancelledTransByTransAndDate(ResultSet result) {
-
-		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
-		try {
-			while (result.next()) {
-				try {
-					String retailRefNo = result.getString(ReconcileBatchConstants.RETAILREFCOL);
-					String civilId = result.getString(ReconcileBatchConstants.CIVILIDCOL);
-					logger.info(retailRefNo);
-					CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
-					cancelledTrans.setRetailRefNo(retailRefNo);
-					cancelledTrans.setRefNo(result.getString(ReconcileBatchConstants.REFNOCOL));
-					cancelledTrans.setCivilId(civilId);
-					cancelledTrans
-							.setReverseAmt(Double.parseDouble(result.getString(ReconcileBatchConstants.AMOUNTCOL)));
-					cancelledTrans.setOtp(Integer.parseInt(result.getString(ReconcileBatchConstants.OTPCOL)));
-					cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
-					cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
-					cancelledTrans.setStoreId(result.getString(ReconcileBatchConstants.STOREIDCOL));
-					cancelledTrans
-							.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
-					cancelledTransactions.add(cancelledTrans);
-				} catch (NumberFormatException ex) {
-					logger.error(ex.toString());
-				}
-			}
-		} catch (NumberFormatException | SQLException ex) {
-			logger.error(ex.getMessage());
-		}
-		return cancelledTransactions;
-	}
-
+	
+	
 	public List<CancelledTransactionDAO> getMissingTransactions(ResultSet result) {
 
 		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
@@ -212,30 +130,14 @@ public class DBManager {
 				logger.debug(erpResponse);
 				logger.debug(posRequest);
 
-				String mydata = posRequest;
-				Pattern pattern = Pattern.compile("mobileNumber=(.*?),");
-				Matcher matcher = pattern.matcher(mydata);
-				String civilId = "";
-				if (matcher.find()) {
-					civilId = matcher.group(1);
-					logger.debug("Civil ID: " + civilId);
-				} else {
-					continue;
-				}
-				pattern = Pattern.compile("otp=(.*?),");
-				matcher = pattern.matcher(mydata);
-				String otp = "";
-				if (matcher.find()) {
-					otp = matcher.group(1);
-					logger.debug("OTP: " + otp);
-				} else {
-					continue;
-				}
-
-				String retailRefNo = null;
+				
+				String civilId = this.getSubStringFromPosRequest("mobileNumber=(.*?),", posRequest);
+				String otp = this.getSubStringFromPosRequest("otp=(.*?),", posRequest);
+				String retailRefNo = this.getSubStringFromPosRequest("retailerRefNo=(.*?),", posRequest);
+				String amount = this.getSubStringFromPosRequest("amount=(.*?),", posRequest);
+				
 				String refNo = null;
-				Double amount = null;
-
+				
 				JSONParser parser = new JSONParser();
 				JSONObject response = null;
 				try {
@@ -243,24 +145,23 @@ public class DBManager {
 					response = (JSONObject) parser.parse(erpResponse);
 					org.json.simple.JSONArray data = (org.json.simple.JSONArray) response.get("Data");
 					if (data != null && data.size() > 0) {
-						refNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("REF_NUM"));
-						retailRefNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("STORE_REF_NUM"));
-						amount = ((Double) ((org.json.simple.JSONObject) data.get(0)).get("AMOUNT"));
+						refNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("RefNumber"));
 					}
 
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
 
-				if (retailRefNo == null || refNo == null || amount == null) {
+				if (civilId == null || retailRefNo == null || amount == null) {
 					continue;
 				}
 
 				CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+				cancelledTrans.setSequenceId(result.getInt(ReconcileBatchConstants.SEQUENCE_ID_COL));
 				cancelledTrans.setRetailRefNo(retailRefNo);
 				cancelledTrans.setRefNo(refNo);
 				cancelledTrans.setCivilId(civilId);
-				cancelledTrans.setReverseAmt(amount.doubleValue());
+				cancelledTrans.setReverseAmt(Double.parseDouble(amount));
 				cancelledTrans.setOtp(Integer.parseInt(otp));
 				cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
 				cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
@@ -285,6 +186,11 @@ public class DBManager {
 
 		return cancelledTransactions;
 	}
+	
+	
+	
+	
+	
 
 	public StringBuilder readingSql(String queryName) {
 
@@ -302,6 +208,18 @@ public class DBManager {
 
 		return new StringBuilder(result.toString());
 
+	}
+	
+	public String getSubStringFromPosRequest(String expression, String request){
+		
+		Pattern pattern = Pattern.compile(expression);
+		Matcher matcher = pattern.matcher(request);
+		String subString= null;
+		if (matcher.find()) {
+			subString = matcher.group(1);
+		}
+		return subString;
+		
 	}
 
 }

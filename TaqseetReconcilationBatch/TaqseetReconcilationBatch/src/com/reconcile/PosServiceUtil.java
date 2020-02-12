@@ -1,12 +1,18 @@
 package com.reconcile;
 
 import java.io.BufferedReader;
-
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -15,8 +21,7 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
- * @author RetailOMatrix
- * This class is created to handle the web service calls
+ * @author RetailOMatrix This class is created to handle the web service calls
  *
  */
 @SuppressWarnings("deprecation")
@@ -102,7 +107,7 @@ public class PosServiceUtil {
 
 	}
 
-	public void callPostTransactionReversal(CancelledTransactionDAO cancelTrans, String method) {
+	public void callPostTransactionReversal(CancelledTransactionDAO cancelTrans) {
 
 		try {
 			logger.info("Calling PostTransactionReversal service...............");
@@ -119,11 +124,9 @@ public class PosServiceUtil {
 
 				if (data != null && data.size() > 0) {
 					String status = ((String) ((org.json.simple.JSONObject) data.get(0)).get("Status"));
-					if (status != null && status.equalsIgnoreCase("0")
-							&& (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS)
-									|| method.equalsIgnoreCase(ReconcileBatchConstants.DATE))) {
+					if (status != null && status.equalsIgnoreCase("0")) {
 						DBManager dbManager = DBManager.getInstance();
-						dbManager.updateStatusOfReversTransaction(cancelTrans.getRetailRefNo());
+						dbManager.updateStatusOfReverseTransaction(cancelTrans.getSequenceId());
 					}
 				}
 			}
@@ -158,4 +161,106 @@ public class PosServiceUtil {
 		return requestDAO;
 	}
 
+	public void generateMissingTransFile(List<CancelledTransactionDAO> cancelledTrans) {
+
+		File missingTransctions = new File(System.getProperty("user.dir") + System.getProperty("file.separator"),
+				"MissingTransactions.txt");
+
+		try {
+
+			if (missingTransctions.exists()) {
+				missingTransctions.delete();
+				missingTransctions.createNewFile();
+			} else {
+				missingTransctions.createNewFile();
+			}
+
+			for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
+				StringBuilder missingTransDetail = new StringBuilder();
+				missingTransDetail.append(cancelledTransaction.getSequenceId());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getBusinesDate());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getStoreId());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getRegisterId());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getTransactionId());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getCivilId());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getRetailRefNo());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getRefNo());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getOtp());
+				missingTransDetail.append("|");
+				missingTransDetail.append(cancelledTransaction.getReverseAmt());
+				missingTransDetail.append(System.getProperty("line.separator"));
+				Files.write(missingTransctions.toPath(), missingTransDetail.toString().getBytes(),
+						StandardOpenOption.APPEND);
+
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	public List<CancelledTransactionDAO> getCancelledTransDetails(){
+		
+		File missingTransctions = new File(System.getProperty("user.dir") + System.getProperty("file.separator"), "MissingTransactions.txt");
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		if (missingTransctions.exists()) {
+		
+		LineNumberReader lineNumberReader = null;
+	      try
+	      {
+	         lineNumberReader = new LineNumberReader(new FileReader(missingTransctions));
+	         String line = null;
+	         while ((line = lineNumberReader.readLine()) != null)
+	         {
+	           String[] transDetail = line.split("\\|");
+	           try{
+	        	  
+	           CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+	           cancelledTrans.setSequenceId(Integer.parseInt(transDetail[Integer.parseInt(this.getProperty("file.position.seqId"))]));
+	           cancelledTrans.setBusinesDate(transDetail[Integer.parseInt(this.getProperty("file.position.businessDate"))]);
+	           cancelledTrans.setStoreId(transDetail[Integer.parseInt(this.getProperty("file.position.storeId"))]);
+	           cancelledTrans.setRegisterId(transDetail[Integer.parseInt(this.getProperty("file.position.regId"))]);
+	           cancelledTrans.setTransactionId(Integer.parseInt(transDetail[Integer.parseInt(this.getProperty("file.position.transId"))]));
+	           cancelledTrans.setCivilId(transDetail[Integer.parseInt(this.getProperty("file.position.civilId"))]);
+	           cancelledTrans.setRetailRefNo(transDetail[Integer.parseInt(this.getProperty("file.position.retailRefNo"))]);
+	           cancelledTrans.setReverseAmt(Double.parseDouble(transDetail[Integer.parseInt(this.getProperty("file.position.amount"))]));
+	           cancelledTrans.setOtp(Integer.parseInt(transDetail[Integer.parseInt(this.getProperty("file.position.otp"))]));
+	           cancelledTrans.setRefNo(transDetail[Integer.parseInt(this.getProperty("file.position.refNo"))]);
+	           cancelledTransactions.add(cancelledTrans);
+	           }catch(NumberFormatException ex){
+	        	   logger.error("Line no in the file"+lineNumberReader.getLineNumber()+"  "+ ex.toString());
+	           }
+	         }
+	         
+	      } 
+	      catch (Exception ex)
+	      {
+	         ex.printStackTrace();
+	      } finally
+	      {
+	         try {
+	            if (lineNumberReader != null){
+	               lineNumberReader.close();
+	            }
+	         } catch (IOException ex){
+	            ex.printStackTrace();
+	         }
+	      }
+	   }
+	 else {
+		logger.error("File not found.");
+	}
+		return cancelledTransactions;
+		
+	}
+	
 }

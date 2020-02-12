@@ -1,0 +1,17 @@
+service.host=http://localhost:8085/PosServiceHandller/
+transactionStatus.endpoint=/v1/getTransactionStatus
+posttransactionreversal.endpoint=v1/postTransactionReversal
+apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM
+db.host=localhost
+db.port=1521
+db.name=xe
+db.username=system
+db.password=admin
+file.position.businessDate=0
+file.position.storeId=1
+file.position.regId=1
+file.position.transId=1
+file.position.civilId=1
+file.position.retailRefNo=1
+file.position.amount=1
+file.position.otp=1

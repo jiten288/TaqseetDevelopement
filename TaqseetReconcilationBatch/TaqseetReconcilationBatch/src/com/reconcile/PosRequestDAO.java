@@ -54,7 +54,8 @@ public class PosRequestDAO {
 	}
 	public PosRequestDAO() {
 	}
-/*	 Please do not change the format of the toString method, this may lead to error as a bad request. 
+
+	/*	 Please do not change the format of the toString method, this may lead to error as a bad request. 
 	It follows a particular format that is designed below.*/
 	@Override
 	public String toString() {

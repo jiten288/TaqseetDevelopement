@@ -1,0 +1,231 @@
+package com.reconcile;
+
+import java.io.BufferedReader;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+/**
+ * @author RetailOMatrix
+ * 
+ *         This class is created to do database operation
+ */
+@SuppressWarnings("deprecation")
+public class DBManager {
+
+	private static DBManager dbManager;
+	static Logger logger = Logger.getLogger(DBManager.class);
+
+	private DBManager() {
+	}
+
+	public static DBManager getInstance() {
+		if (dbManager == null) {
+			dbManager = new DBManager();
+		}
+		return dbManager;
+	}
+
+	public Connection getConection() {
+		Connection con = null;
+		PosServiceUtil util = new PosServiceUtil();
+		StringBuilder jdbcUrl = new StringBuilder();
+		jdbcUrl.append("jdbc:oracle:thin:@");
+		jdbcUrl.append(util.getProperty("db.host") + ":");
+		jdbcUrl.append(util.getProperty("db.port") + ":");
+		jdbcUrl.append(util.getProperty("db.name"));
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(jdbcUrl.toString(), util.getProperty("db.username"),
+					util.getProperty("db.password"));
+		} catch (ClassNotFoundException | SQLException e) {
+			logger.error(e.getMessage());
+		}
+		return con;
+	}
+
+	
+
+	public List<CancelledTransactionDAO> getMissedCancelledTransactionByTrans() {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		StringBuilder selectClause = this.readingSql("MissingTransFromPOSServiceHandller.sql");
+		cancelledTransactions = executeQuery(selectClause.toString());
+		return cancelledTransactions;
+
+	}
+
+	public void updateStatusOfReverseTransaction(int sequenceId) {
+
+		String updateStatement = "UPDATE EXTRA_POS_SERVICE_HANDLER SET rcn_status = 'Y' WHERE SEQUENCE_ID = ?";
+		logger.debug("Executing update statement: " + updateStatement + " [" + sequenceId + "]");
+		try (Connection conn = dbManager.getConection();
+				PreparedStatement stmt = conn.prepareStatement(updateStatement)) {
+			stmt.setInt(1, sequenceId);
+			int noOfRecordsUpdated = stmt.executeUpdate();
+			if (noOfRecordsUpdated > 0) {
+				logger.info("No of records updated: " + noOfRecordsUpdated);
+				logger.info("Status has been updated successfully.");
+			}
+		} catch (SQLException e) {
+			logger.error(e.toString());
+			logger.error(e.getMessage());
+		}
+
+	}
+
+	public List<CancelledTransactionDAO> executeQuery(String sql) {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		DBManager dbManager = DBManager.getInstance();
+		ResultSet result = null;
+		try (Connection conn = dbManager.getConection(); Statement stmt = conn.createStatement()) {
+			logger.debug("Connected to DB successfully.");
+			result = stmt.executeQuery(sql);
+			
+				cancelledTransactions = getMissingTransactions(result);
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException sqlEx) {
+					logger.error(sqlEx.getMessage());
+				}
+				result = null;
+			}
+		}
+		return cancelledTransactions;
+	}
+
+	
+	
+	public List<CancelledTransactionDAO> getMissingTransactions(ResultSet result) {
+
+		List<CancelledTransactionDAO> cancelledTransactions = new ArrayList<CancelledTransactionDAO>();
+		try {
+			while (result.next()) {
+				Blob erpResponseBlob = result.getBlob(ReconcileBatchConstants.INDBOUNDERPRESPCOL);
+				Blob posRequestBlob = result.getBlob(ReconcileBatchConstants.INBOUNDPOSREQCOL);
+				String erpResponse = new String(erpResponseBlob.getBytes(1l, (int) erpResponseBlob.length()));
+				String posRequest = new String(posRequestBlob.getBytes(1l, (int) posRequestBlob.length()));
+				logger.debug(erpResponse);
+				logger.debug(posRequest);
+
+				
+				String civilId = this.getSubStringFromPosRequest("mobileNumber=(.*?),", posRequest);
+				String otp = this.getSubStringFromPosRequest("otp=(.*?),", posRequest);
+				String retailRefNo = this.getSubStringFromPosRequest("retailerRefNo=(.*?),", posRequest);
+				String amount = this.getSubStringFromPosRequest("amount=(.*?),", posRequest);
+				
+				String refNo = null;
+				
+				JSONParser parser = new JSONParser();
+				JSONObject response = null;
+				try {
+
+					response = (JSONObject) parser.parse(erpResponse);
+					org.json.simple.JSONArray data = (org.json.simple.JSONArray) response.get("Data");
+					if (data != null && data.size() > 0) {
+						refNo = ((String) ((org.json.simple.JSONObject) data.get(0)).get("RefNumber"));
+					}
+
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				if (civilId == null || retailRefNo == null || amount == null) {
+					continue;
+				}
+
+				CancelledTransactionDAO cancelledTrans = new CancelledTransactionDAO();
+				cancelledTrans.setSequenceId(result.getInt(ReconcileBatchConstants.SEQUENCE_ID_COL));
+				cancelledTrans.setRetailRefNo(retailRefNo);
+				cancelledTrans.setRefNo(refNo);
+				cancelledTrans.setCivilId(civilId);
+				cancelledTrans.setReverseAmt(Double.parseDouble(amount));
+				cancelledTrans.setOtp(Integer.parseInt(otp));
+				cancelledTrans.setBusinesDate(result.getString(ReconcileBatchConstants.BUSINESSDATECOL));
+				cancelledTrans.setRegisterId(result.getString(ReconcileBatchConstants.REGISTERIDCOL));
+				cancelledTrans.setStoreId(result.getString(ReconcileBatchConstants.STOREIDCOL));
+				cancelledTrans
+						.setTransactionId(Integer.parseInt(result.getString(ReconcileBatchConstants.TRANSSEQCOL)));
+				cancelledTransactions.add(cancelledTrans);
+			}
+		} catch (NumberFormatException | SQLException e) {
+			logger.error(e.getMessage());
+		} finally {
+
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException ex) {
+					logger.error(ex.getMessage());
+				}
+				result = null;
+			}
+		}
+
+		return cancelledTransactions;
+	}
+	
+	
+	
+	
+	
+
+	public StringBuilder readingSql(String queryName) {
+
+		InputStream inputStream = DBManager.class.getResourceAsStream("/" + queryName);
+		ByteArrayOutputStream result = new ByteArrayOutputStream();
+		byte[] buffer = new byte[1024];
+		int length;
+		try {
+			while ((length = inputStream.read(buffer)) != -1) {
+				result.write(buffer, 0, length);
+			}
+		} catch (IOException ex) {
+			logger.error(ex.getMessage());
+		}
+
+		return new StringBuilder(result.toString());
+
+	}
+	
+	public String getSubStringFromPosRequest(String expression, String request){
+		
+		Pattern pattern = Pattern.compile(expression);
+		Matcher matcher = pattern.matcher(request);
+		String subString= null;
+		if (matcher.find()) {
+			subString = matcher.group(1);
+		}
+		return subString;
+		
+	}
+
+}

@@ -1,0 +1,149 @@
+package com.reconcile;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+/**
+ * @author RetailOMatrix This class is created to start the reconciliation
+ *         batch.
+ *
+ */
+public class TaqseetReconcileUtillity {
+
+	static Logger logger = Logger.getLogger(TaqseetReconcileUtillity.class);
+
+	public static void main(String[] batchParam) {
+
+		configureLog4j();
+		Boolean dateParam = false;
+		Boolean tranParam = false;
+		Boolean missedTranParam = false;
+		String method = null;
+		String filepath = null;
+
+		BatchParameter batchType = null;
+
+		if (batchParam.length > 0) {
+
+			if (batchParam[0].equalsIgnoreCase("1")) {
+
+				batchType = BatchParameter.GENERATE_REPORT;
+
+			} else if (batchParam[0].equalsIgnoreCase("2")) {
+
+				batchType = BatchParameter.TRANSACTION_REVERSAL;
+			} else {
+				logger.error("Invalid Or No paramters passed. Valid parameters are: "
+						+ BatchParameter.GENERATE_REPORT.getCode() + "-"
+						+ BatchParameter.GENERATE_REPORT.getDescription() + ", "
+						+ BatchParameter.TRANSACTION_REVERSAL.getCode() + "-"
+						+ BatchParameter.TRANSACTION_REVERSAL.getDescription());
+			}
+
+		} else {
+			logger.error("Invalid Or No paramters passed. Valid parameters are: "
+					+ BatchParameter.GENERATE_REPORT.getCode() + "-" + BatchParameter.GENERATE_REPORT.getDescription()
+					+ ", " + BatchParameter.TRANSACTION_REVERSAL.getCode() + "-"
+					+ BatchParameter.TRANSACTION_REVERSAL.getDescription());
+		}
+
+		if (batchType != null && batchType.compareTo(BatchParameter.GENERATE_REPORT) == 0) {
+
+			logger.info("Call the missing transaction Query  " + method);
+			logger.info("----------------Start---------------------");
+			DBManager dbManager = DBManager.getInstance();
+			List<CancelledTransactionDAO> cancelledTrans = dbManager.getMissedCancelledTransactionByTrans();
+			if (cancelledTrans.size() == 0) {
+				logger.info("No Transaction Found.");
+
+			} else {
+				PosServiceUtil service = new PosServiceUtil();
+				service.generateCancelledTransFile(cancelledTrans);
+				// processReverseTransctions(cancelledTrans,method);
+			}
+			logger.info("----------------End---------------------");
+		} else if (batchType != null && batchType.compareTo(BatchParameter.TRANSACTION_REVERSAL) == 0) {
+
+		}
+		/*
+		 * if (batchParam.length == 2) { method = batchParam[0]; filepath =
+		 * batchParam[1]; if
+		 * (method.equalsIgnoreCase(ReconcileBatchConstants.TRANS)) { if
+		 * (!filepath.isEmpty()) { tranParam = true; } else { logger.error(
+		 * "Filepath is empty"); } } else if
+		 * (method.equalsIgnoreCase(ReconcileBatchConstants.DATE)) { dateParam =
+		 * true; filepath = null; } else if
+		 * (method.equalsIgnoreCase(ReconcileBatchConstants.MISSINGTRANS)) {
+		 * missedTranParam = true; filepath = null; } else { logger.error(
+		 * "Invalid Or No paramters passed. Valid parameters are: " +
+		 * ReconcileBatchConstants.TRANS + ", " + ReconcileBatchConstants.DATE +
+		 * ", " + ReconcileBatchConstants.MISSINGTRANS); System.exit(0); } }
+		 * else { logger.error(
+		 * "Invalid Or No paramters passed. Valid parameters are: " +
+		 * ReconcileBatchConstants.TRANS + "," + ReconcileBatchConstants.DATE +
+		 * "," + ReconcileBatchConstants.MISSINGTRANS); System.exit(0); }
+		 * 
+		 * if (dateParam) {
+		 * 
+		 * logger.info("Call the Date Query" + method);
+		 * logger.info("----------------Start---------------------"); DBManager
+		 * dbManager = DBManager.getInstance(); List<CancelledTransactionDAO>
+		 * cancelledTrans = dbManager.getCancelledTransactionByDate();
+		 * if(cancelledTrans.size()==0){ logger.info("No Transaction Found.");
+		 * }else{ processReverseTransctions(cancelledTrans,method); }
+		 * 
+		 * logger.info("----------------End---------------------");
+		 * 
+		 * } else if (tranParam) {
+		 * 
+		 * logger.info("Call the trans Query  " + method + " " + filepath);
+		 * logger.info("----------------Start---------------------"); DBManager
+		 * dbManager = DBManager.getInstance(); List<CancelledTransactionDAO>
+		 * cancelledTrans = dbManager.getCancelledTransactionByTrans(filepath);
+		 * if(cancelledTrans.size()==0){ logger.info("No Transaction Found.");
+		 * }else{ processReverseTransctions(cancelledTrans,method); }
+		 * logger.info("----------------End---------------------");
+		 * 
+		 * } else if (missedTranParam) {
+		 * 
+		 * logger.info("Call the missing transaction Query  " + method);
+		 * logger.info("----------------Start---------------------"); DBManager
+		 * dbManager = DBManager.getInstance(); List<CancelledTransactionDAO>
+		 * cancelledTrans = dbManager.getMissedCancelledTransactionByTrans();
+		 * if(cancelledTrans.size()==0){ logger.info("No Transaction Found.");
+		 * 
+		 * }else{ PosServiceUtil service = new PosServiceUtil();
+		 * service.generateCancelledTransFile(cancelledTrans); //
+		 * processReverseTransctions(cancelledTrans,method); }
+		 * logger.info("----------------End---------------------"); }
+		 */
+	}
+
+	private static void configureLog4j() {
+
+		BasicConfigurator.configure();
+		Properties prop = new Properties();
+		try {
+			prop.load(PosServiceUtil.class.getClass().getResourceAsStream("/log4j.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		PropertyConfigurator.configure(prop);
+	}
+
+	private static void processReverseTransctions(List<CancelledTransactionDAO> cancelledTrans, String method) {
+
+		PosServiceUtil service = new PosServiceUtil();
+		for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
+			boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
+			if (transactionStatus) {
+				service.callPostTransactionReversal(cancelledTransaction, method);
+			}
+		}
+	}
+}

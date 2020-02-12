@@ -32,4 +32,5 @@
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="com.reconcile.CancelledTransactionDAO"/>
+<fullyQualifiedTypeName name="com.reconcile.ReconcileBatchConstants"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package com.reconcile;
+
+public class ReconcileBatchConstants {
+	
+	public static String TRANS = "ByTrans";
+	public static String DATE = "ByDate";
+	public static String MISSINGTRANS = "MissingTrans";
+
+}

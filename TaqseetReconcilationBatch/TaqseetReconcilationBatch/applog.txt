@@ -1,545 +1,9 @@
-INFO    2020-01-31 15:50:41,190 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Query
-INFO    2020-01-31 17:04:04,467 [main] com.reconcile.TaqseetReconcileUtillity  - Invalid Or No paramters passed
-INFO    2020-01-31 17:06:12,292 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query
-INFO    2020-01-31 17:07:02,831 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Querytrand:\service.properties
-INFO    2020-01-31 17:07:29,366 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Querytran d:\service.properties
-INFO    2020-01-31 17:07:46,324 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran d:\service.properties
-INFO    2020-01-31 19:29:48,189 [main] com.reconcile.TaqseetReconcileUtillity  - http://localhost:8085/PosServiceHandller/
-INFO    2020-01-31 19:31:46,237 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran d:\service.properties
-INFO    2020-01-31 19:35:43,553 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran d:\service.properties
-INFO    2020-01-31 20:00:30,275 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran d:\service.properties
-INFO    2020-01-31 20:01:20,823 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-ERROR   2020-01-31 20:01:21,454 [main] com.reconcile.DBManager  - 
-INFO    2020-01-31 20:01:21,454 [main] com.reconcile.TaqseetReconcileUtillity  - DB Connection: null
-INFO    2020-01-31 20:02:32,248 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 20:05:10,324 [main] com.reconcile.TaqseetReconcileUtillity  - DB Connection: oracle.jdbc.driver.T4CConnection@6e0027da
-INFO    2020-01-31 20:40:10,799 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 20:40:10,802 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-01-31 20:40:12,077 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-01-31 20:40:16,171 [main] com.reconcile.PosServiceUtil  - {"StatusCode":500,"Exception":{"Source":"TasheelWeb.WebApp","Data":null,"HResult":-2146233088,"RemoteStackIndex":0,"Message":"WAY4 API returned InternalServerError. View inner exception for details.","StackTraceString":"   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 170\r\n   at TasheelWeb.WebApp.Services.WAY4Service.ReverseFinanceTransaction(String CivilId, String RefNumber, Double Amount) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 111\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.REST_ProxyPOSController.<>c__DisplayClass4_0.<ReverseFinanceTransaction>b__0() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\REST_ProxyPOSController.cs:line 178\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.ApiBaseController.<RUN>d__8`1.MoveNext() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\ApiBaseController.cs:line 58","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nCallWAY4API\nTasheelWeb.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nTasheelWeb.WebApp.Services.WAY4Service\nT CallWAY4API[T](System.String, System.String)","ClassName":"System.Exception","RemoteStackTraceString":null,"InnerException":{"Source":"System","Data":null,"HResult":-2146233079,"RemoteStackIndex":0,"Message":"The remote server returned an error: (500) Internal Server Error.","StackTraceString":"   at System.Net.HttpWebRequest.GetResponse()\r\n   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 150","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nGetResponse\nSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Net.HttpWebRequest\nSystem.Net.WebResponse GetResponse()","ClassName":"System.Net.WebException","RemoteStackTraceString":null,"InnerException":null}},"Status":"InternalServerError","ErrorDescription":"WAY4 API returned InternalServerError. View inner exception for details."}
-INFO    2020-01-31 20:43:00,170 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 20:43:00,173 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-01-31 20:43:00,666 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-01-31 20:43:02,032 [main] com.reconcile.PosServiceUtil  - {"StatusCode":500,"Exception":{"Source":"TasheelWeb.WebApp","Data":null,"HResult":-2146233088,"RemoteStackIndex":0,"Message":"WAY4 API returned InternalServerError. View inner exception for details.","StackTraceString":"   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 170\r\n   at TasheelWeb.WebApp.Services.WAY4Service.ReverseFinanceTransaction(String CivilId, String RefNumber, Double Amount) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 111\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.REST_ProxyPOSController.<>c__DisplayClass4_0.<ReverseFinanceTransaction>b__0() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\REST_ProxyPOSController.cs:line 178\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.ApiBaseController.<RUN>d__8`1.MoveNext() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\ApiBaseController.cs:line 58","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nCallWAY4API\nTasheelWeb.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nTasheelWeb.WebApp.Services.WAY4Service\nT CallWAY4API[T](System.String, System.String)","ClassName":"System.Exception","RemoteStackTraceString":null,"InnerException":{"Source":"System","Data":null,"HResult":-2146233079,"RemoteStackIndex":0,"Message":"The remote server returned an error: (500) Internal Server Error.","StackTraceString":"   at System.Net.HttpWebRequest.GetResponse()\r\n   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 150","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nGetResponse\nSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Net.HttpWebRequest\nSystem.Net.WebResponse GetResponse()","ClassName":"System.Net.WebException","RemoteStackTraceString":null,"InnerException":null}},"Status":"InternalServerError","ErrorDescription":"WAY4 API returned InternalServerError. View inner exception for details."}
-INFO    2020-01-31 20:47:16,982 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 20:47:16,987 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-01-31 20:47:17,474 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-01-31 20:47:19,027 [main] com.reconcile.PosServiceUtil  - {"StatusCode":500,"Exception":{"Source":"TasheelWeb.WebApp","Data":null,"HResult":-2146233088,"RemoteStackIndex":0,"Message":"WAY4 API returned InternalServerError. View inner exception for details.","StackTraceString":"   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 170\r\n   at TasheelWeb.WebApp.Services.WAY4Service.ReverseFinanceTransaction(String CivilId, String RefNumber, Double Amount) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 111\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.REST_ProxyPOSController.<>c__DisplayClass4_0.<ReverseFinanceTransaction>b__0() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\REST_ProxyPOSController.cs:line 178\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.ApiBaseController.<RUN>d__8`1.MoveNext() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\ApiBaseController.cs:line 58","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nCallWAY4API\nTasheelWeb.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nTasheelWeb.WebApp.Services.WAY4Service\nT CallWAY4API[T](System.String, System.String)","ClassName":"System.Exception","RemoteStackTraceString":null,"InnerException":{"Source":"System","Data":null,"HResult":-2146233079,"RemoteStackIndex":0,"Message":"The remote server returned an error: (500) Internal Server Error.","StackTraceString":"   at System.Net.HttpWebRequest.GetResponse()\r\n   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 150","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nGetResponse\nSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Net.HttpWebRequest\nSystem.Net.WebResponse GetResponse()","ClassName":"System.Net.WebException","RemoteStackTraceString":null,"InnerException":null}},"Status":"InternalServerError","ErrorDescription":"WAY4 API returned InternalServerError. View inner exception for details."}
-INFO    2020-01-31 21:15:00,168 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-ERROR   2020-01-31 21:15:00,374 [main] com.reconcile.DBManager  - 
-INFO    2020-01-31 21:15:00,374 [main] com.reconcile.DBManager  - 
-INFO    2020-01-31 21:15:25,635 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 21:17:14,517 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 21:17:50,821 [main] com.reconcile.DBManager  - oracle.jdbc.driver.T4CConnection@6a6adec5
-INFO    2020-01-31 21:18:39,757 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-01-31 21:18:40,665 [main] com.reconcile.DBManager  - oracle.jdbc.driver.T4CConnection@239ea44c
-INFO    2020-02-02 14:25:19,859 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:26:22,780 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:31:25,919 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:34:14,169 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:39:43,190 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:39:45,195 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:42:51,803 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:43:00,634 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144');
-INFO    2020-02-02 14:52:55,181 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:53:03,260 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144');
-INFO    2020-02-02 14:56:54,079 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:56:55,427 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:56:56,399 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 14:57:04,800 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144');
-INFO    2020-02-02 15:00:03,502 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144')
-INFO    2020-02-02 15:00:08,853 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@366953d
-INFO    2020-02-02 15:00:08,855 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 15:02:12,536 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 15:02:12,540 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144')
-INFO    2020-02-02 15:02:13,468 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@767f2121
-INFO    2020-02-02 15:02:13,469 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 15:02:37,047 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 15:02:40,990 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2781174062"}],"Status":"OK"}
-INFO    2020-02-02 15:14:18,287 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-02-02 15:16:57,726 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-02-02 15:17:09,341 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'AND trn.DC_DY_BSN=
-INFO    2020-02-02 15:18:13,082 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-02-02 15:21:35,365 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO' AND trn.DC_DY_BSN= '2020-02-02'
-INFO    2020-02-02 15:21:39,180 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@7aecc021
-INFO    2020-02-02 21:03:24,403 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144')
-INFO    2020-02-02 21:03:33,974 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@44723592
-INFO    2020-02-02 21:03:33,975 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 21:03:58,798 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:05:18,369 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:06:12,930 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:08:42,423 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:09:29,030 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:09:41,221 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:13:19,278 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 21:54:13,189 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-02-02 21:54:19,516 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 21:54:29,454 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-02T18:21:13","REF_NUM":"2791174062","AMOUNT":2.25,"STORE_REF_NUM":"REF_EXT_0461139"}],"Status":"OK"}
-INFO    2020-02-02 21:57:58,166 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 21:58:41,775 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-02T18:21:13","REF_NUM":"2791174062","AMOUNT":2.25,"STORE_REF_NUM":"REF_EXT_0461139"}],"Status":"OK"}
-INFO    2020-02-02 22:02:54,765 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date Querydate
-INFO    2020-02-02 22:02:57,180 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 22:03:06,490 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-02T18:21:13","REF_NUM":"2791174062","AMOUNT":2.25,"STORE_REF_NUM":"REF_EXT_0461139"}],"Status":"OK"}
-INFO    2020-02-02 23:08:46,068 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:08:46,074 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:08:47,015 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@6f824c0c
-INFO    2020-02-02 23:08:47,016 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 23:08:48,205 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:10:41,218 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:10:49,975 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:10:55,530 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@35ffcd45
-INFO    2020-02-02 23:10:55,531 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 23:11:03,935 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:12:00,578 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:12:03,231 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:12:07,376 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@35ffcd45
-INFO    2020-02-02 23:12:07,377 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 23:12:11,447 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:12:57,348 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service...............
-INFO    2020-02-02 23:12:59,588 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:13:59,495 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:13:59,499 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:14:00,464 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2e6ed964
-INFO    2020-02-02 23:14:00,465 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 1033660802
-INFO    2020-02-02 23:14:01,060 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:14:56,078 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:14:56,083 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:14:57,014 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@534ee105
-INFO    2020-02-02 23:14:57,015 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
-INFO    2020-02-02 23:14:57,489 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
-INFO    2020-02-02 23:14:57,489 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-02 23:14:59,222 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-02 23:19:21,854 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:19:21,858 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:19:22,909 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@6f824c0c
-INFO    2020-02-02 23:19:22,911 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 1191174062
-INFO    2020-02-02 23:19:23,615 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
-INFO    2020-02-02 23:22:23,053 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:22:23,060 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:22:24,014 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@5f9739fd
-INFO    2020-02-02 23:22:24,015 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
-INFO    2020-02-02 23:22:25,333 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
-INFO    2020-02-02 23:22:25,334 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-02 23:22:26,953 [main] com.reconcile.PosServiceUtil  - {"StatusCode":500,"Exception":{"Source":"TasheelWeb.WebApp","Data":null,"HResult":-2146233088,"RemoteStackIndex":0,"Message":"WAY4 API returned InternalServerError. View inner exception for details.","StackTraceString":"   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 170\r\n   at TasheelWeb.WebApp.Services.WAY4Service.ReverseFinanceTransaction(String CivilId, String RefNumber, Double Amount) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 111\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.REST_ProxyPOSController.<>c__DisplayClass4_0.<ReverseFinanceTransaction>b__0() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\REST_ProxyPOSController.cs:line 178\r\n   at TasheelWeb.WebApp.Areas.REST.Controllers.ApiBaseController.<RUN>d__8`1.MoveNext() in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Areas\\REST\\Controllers\\ApiBaseController.cs:line 58","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nCallWAY4API\nTasheelWeb.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nTasheelWeb.WebApp.Services.WAY4Service\nT CallWAY4API[T](System.String, System.String)","ClassName":"System.Exception","RemoteStackTraceString":null,"InnerException":{"Source":"System","Data":null,"HResult":-2146233079,"RemoteStackIndex":0,"Message":"The remote server returned an error: (500) Internal Server Error.","StackTraceString":"   at System.Net.HttpWebRequest.GetResponse()\r\n   at TasheelWeb.WebApp.Services.WAY4Service.CallWAY4API[T](String requestUrl, String method) in C:\\Projects\\UCFS\\UAT\\TasheelWeb-Test\\TasheelWeb.WebApp\\Services\\WAY4Service.cs:line 150","HelpURL":null,"WatsonBuckets":null,"ExceptionMethod":"8\nGetResponse\nSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Net.HttpWebRequest\nSystem.Net.WebResponse GetResponse()","ClassName":"System.Net.WebException","RemoteStackTraceString":null,"InnerException":null}},"Status":"InternalServerError","ErrorDescription":"WAY4 API returned InternalServerError. View inner exception for details."}
-INFO    2020-02-02 23:27:39,238 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-02 23:27:39,243 [main] com.reconcile.DBManager  - Executing query: SELECT uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-02 23:27:40,234 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@41604212
-INFO    2020-02-02 23:27:40,235 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
-INFO    2020-02-02 23:27:42,376 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
-INFO    2020-02-02 23:27:42,377 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-02 23:27:43,727 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 12:07:33,005 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transactin Query  missedtran null
-INFO    2020-02-03 12:08:30,198 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@1da2f8ca
-ERROR   2020-02-03 12:09:33,361 [main] com.reconcile.DBManager  - 
-INFO    2020-02-03 12:10:15,557 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@57fac7f6
-INFO    2020-02-03 12:21:34,891 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transactin Query  missedtran null
-INFO    2020-02-03 12:21:44,230 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@4c11ba7f
-INFO    2020-02-03 12:22:27,156 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@611270a0
-INFO    2020-02-03 12:22:52,182 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 13:35:48,442 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transactin Query  missedtran null
-INFO    2020-02-03 13:35:56,630 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2c1507e9
-INFO    2020-02-03 13:36:04,782 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 13:36:06,175 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller//v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=343, accept=*/*, postman-token=62f96645-1d3e-4f4f-bbfc-a417d57da979, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2.25, otp=132645, retailerRefNo=REF_EXT_0461139, requestData={ Request: [{sequenceId=1, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 13:41:21,434 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2831174062","STORE_REF_NUM":"REF_EXT_046113","AMND_DATE":"2020-02-03T10:04:53"}]}
-INFO    2020-02-03 13:41:21,435 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=339, accept=*/*, postman-token=123f3b8c-5c34-42e5-b5db-1009c9df355a, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_046113, requestData={ Request: [{sequenceId=6, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 13:41:21,436 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 13:41:55,056 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2841174062","STORE_REF_NUM":"REF_EXT_0461132","AMND_DATE":"2020-02-03T10:13:02"}]}
-INFO    2020-02-03 13:41:55,057 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=58A8EF020CF7FD580AEF1A57844F96D1, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=3a05c0ca-e61f-48c9-a583-ef25833c00d2, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461132, requestData={ Request: [{sequenceId=7, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 13:41:55,058 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:10:36,930 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transaction Query  missedtran null
-INFO    2020-02-03 23:10:52,492 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@3bbd06b0
-INFO    2020-02-03 23:11:21,520 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 23:11:21,521 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller//v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=343, accept=*/*, postman-token=62f96645-1d3e-4f4f-bbfc-a417d57da979, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2.25, otp=132645, retailerRefNo=REF_EXT_0461139, requestData={ Request: [{sequenceId=1, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:11:21,524 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:11:21,525 [main] com.reconcile.DBManager  - OTP: 
-INFO    2020-02-03 23:14:54,181 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transaction Query  missedtran null
-INFO    2020-02-03 23:15:00,615 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@77022b73
-INFO    2020-02-03 23:15:02,867 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 23:15:02,868 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller//v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=343, accept=*/*, postman-token=62f96645-1d3e-4f4f-bbfc-a417d57da979, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2.25, otp=132645, retailerRefNo=REF_EXT_0461139, requestData={ Request: [{sequenceId=1, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:15:02,870 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:15:02,871 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:18:33,164 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2831174062","STORE_REF_NUM":"REF_EXT_046113","AMND_DATE":"2020-02-03T10:04:53"}]}
-INFO    2020-02-03 23:18:33,165 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=339, accept=*/*, postman-token=123f3b8c-5c34-42e5-b5db-1009c9df355a, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_046113, requestData={ Request: [{sequenceId=6, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:18:33,169 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:18:33,169 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:19:20,138 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2841174062","STORE_REF_NUM":"REF_EXT_0461132","AMND_DATE":"2020-02-03T10:13:02"}]}
-INFO    2020-02-03 23:19:20,139 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=58A8EF020CF7FD580AEF1A57844F96D1, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=3a05c0ca-e61f-48c9-a583-ef25833c00d2, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461132, requestData={ Request: [{sequenceId=7, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:19:20,141 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:19:20,142 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:41,940 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transaction Query  missedtran null
-INFO    2020-02-03 23:20:47,978 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2f72c80f
-INFO    2020-02-03 23:20:51,593 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 23:20:51,595 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller//v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=343, accept=*/*, postman-token=62f96645-1d3e-4f4f-bbfc-a417d57da979, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2.25, otp=132645, retailerRefNo=REF_EXT_0461139, requestData={ Request: [{sequenceId=1, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:20:51,596 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:20:51,597 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:57,437 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2831174062","STORE_REF_NUM":"REF_EXT_046113","AMND_DATE":"2020-02-03T10:04:53"}]}
-INFO    2020-02-03 23:20:57,438 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=339, accept=*/*, postman-token=123f3b8c-5c34-42e5-b5db-1009c9df355a, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_046113, requestData={ Request: [{sequenceId=6, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:20:57,439 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:20:57,440 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:57,442 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2841174062","STORE_REF_NUM":"REF_EXT_0461132","AMND_DATE":"2020-02-03T10:13:02"}]}
-INFO    2020-02-03 23:20:57,442 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=58A8EF020CF7FD580AEF1A57844F96D1, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=3a05c0ca-e61f-48c9-a583-ef25833c00d2, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461132, requestData={ Request: [{sequenceId=7, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:20:57,444 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:20:57,444 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:57,446 [main] com.reconcile.DBManager  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Code":["ERR_RETAILER_REF"],"Message":["Retailer Reference number already exist"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"8\"}"]}}
-INFO    2020-02-03 23:20:57,447 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=4E89F07F07B563EDCB897A436F355083, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=0f00aaea-9c38-4d1a-85f6-240c9c7f845f, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461134, requestData={ Request: [{sequenceId=8, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:20:57,448 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:20:57,449 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:57,451 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"RefNumber":"2861174062","Status":"0"}]}
-INFO    2020-02-03 23:20:57,451 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=908793913C484B42F5FEBF08FF6CDB88, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=334, accept=*/*, postman-token=23b31866-c431-4a64-8f34-b9b0601d0a24, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_1, requestData={ Request: [{sequenceId=9, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:20:57,452 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:20:57,453 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:20:57,457 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_0461139
-INFO    2020-02-03 23:21:06,062 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-02T18:21:13","REF_NUM":"2791174062","AMOUNT":2.25,"STORE_REF_NUM":"REF_EXT_0461139"}],"Status":"OK"}
-INFO    2020-02-03 23:21:06,063 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:21:07,418 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:21:07,418 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_046113
-INFO    2020-02-03 23:21:07,749 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-03T10:04:53","REF_NUM":"2831174062","AMOUNT":2.0,"STORE_REF_NUM":"REF_EXT_046113"}],"Status":"OK"}
-INFO    2020-02-03 23:21:07,749 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:21:09,558 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2871174062"}],"Status":"OK"}
-INFO    2020-02-03 23:21:09,559 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_0461132
-INFO    2020-02-03 23:21:09,944 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-03T10:13:02","REF_NUM":"2841174062","AMOUNT":2.0,"STORE_REF_NUM":"REF_EXT_0461132"}],"Status":"OK"}
-INFO    2020-02-03 23:21:09,945 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:21:11,138 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2881174062"}],"Status":"OK"}
-INFO    2020-02-03 23:24:30,678 [main] com.reconcile.TaqseetReconcileUtillity  - Call the missing transaction Query  missedtran null
-INFO    2020-02-03 23:24:31,507 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@108c53f9
-INFO    2020-02-03 23:24:31,605 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.25,"REF_NUM":"2791174062","STORE_REF_NUM":"REF_EXT_0461139","AMND_DATE":"2020-02-02T18:21:13"}]}
-INFO    2020-02-03 23:24:31,605 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller//v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=343, accept=*/*, postman-token=62f96645-1d3e-4f4f-bbfc-a417d57da979, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2.25, otp=132645, retailerRefNo=REF_EXT_0461139, requestData={ Request: [{sequenceId=1, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:24:31,605 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:24:31,605 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:24:31,620 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2831174062","STORE_REF_NUM":"REF_EXT_046113","AMND_DATE":"2020-02-03T10:04:53"}]}
-INFO    2020-02-03 23:24:31,621 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=339, accept=*/*, postman-token=123f3b8c-5c34-42e5-b5db-1009c9df355a, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_046113, requestData={ Request: [{sequenceId=6, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:24:31,621 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:24:31,621 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"AMOUNT":2.0,"REF_NUM":"2841174062","STORE_REF_NUM":"REF_EXT_0461132","AMND_DATE":"2020-02-03T10:13:02"}]}
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=58A8EF020CF7FD580AEF1A57844F96D1, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=3a05c0ca-e61f-48c9-a583-ef25833c00d2, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461132, requestData={ Request: [{sequenceId=7, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Code":["ERR_RETAILER_REF"],"Message":["Retailer Reference number already exist"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"8\"}"]}}
-INFO    2020-02-03 23:24:31,622 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=4E89F07F07B563EDCB897A436F355083, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=340, accept=*/*, postman-token=0f00aaea-9c38-4d1a-85f6-240c9c7f845f, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_0461134, requestData={ Request: [{sequenceId=8, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:24:31,623 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:24:31,623 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:24:31,623 [main] com.reconcile.DBManager  - {"StatusCode":200,"Status":"OK","Data":[{"RefNumber":"2861174062","Status":"0"}]}
-INFO    2020-02-03 23:24:31,623 [main] com.reconcile.DBManager  - REQUEST method=[POST] path=[/PosServiceHandller/v1/postTransaction] headers=[{cookie=JSESSIONID=908793913C484B42F5FEBF08FF6CDB88, cache-control=no-cache, content-type=application/json, connection=keep-alive, host=localhost:8085, content-length=334, accept=*/*, postman-token=23b31866-c431-4a64-8f34-b9b0601d0a24, user-agent=PostmanRuntime/7.22.0, accept-encoding=gzip, deflate, br}] body=[{ Transaction: [{mobileNumber=1033660802, amount=2, otp=132645, retailerRefNo=REF_EXT_1, requestData={ Request: [{sequenceId=9, storeId=1001, registerId=1, transactionId=222, businesDate=2019-04-28T14:45:15, apiKey=d4E9YfNq5CGJNbxXeYNhgpIvVuSiQrh0MJSiSIXz7wwO2djLs83MMXP5tf8d7OrTj47ZLJh5iBm1u5ofvhB4AO3o7jC4Ysi4M9BM}] }}] }]
-INFO    2020-02-03 23:24:31,624 [main] com.reconcile.DBManager  - Civil ID: 1033660802
-INFO    2020-02-03 23:24:31,624 [main] com.reconcile.DBManager  - OTP: 132645
-INFO    2020-02-03 23:24:31,625 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_0461139
-INFO    2020-02-03 23:24:31,993 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-02T18:21:13","REF_NUM":"2791174062","AMOUNT":2.25,"STORE_REF_NUM":"REF_EXT_0461139"}],"Status":"OK"}
-INFO    2020-02-03 23:24:31,993 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:24:33,259 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:24:33,260 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_046113
-INFO    2020-02-03 23:24:33,656 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-03T10:04:53","REF_NUM":"2831174062","AMOUNT":2.0,"STORE_REF_NUM":"REF_EXT_046113"}],"Status":"OK"}
-INFO    2020-02-03 23:24:33,657 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:24:34,689 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:24:34,689 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_0461132
-INFO    2020-02-03 23:24:35,045 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-02-03T10:13:02","REF_NUM":"2841174062","AMOUNT":2.0,"STORE_REF_NUM":"REF_EXT_0461132"}],"Status":"OK"}
-INFO    2020-02-03 23:24:35,045 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:24:36,331 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:26:38,740 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:26:38,753 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
+INFO    2020-02-04 12:07:55,000 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-04 12:07:55,000 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+INFO    2020-02-04 12:07:55,888 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
+INFO    2020-02-04 12:08:15,262 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-04 12:08:15,262 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+DEBUG   2020-02-04 12:08:15,270 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
    trn.ID_WS wkstnId,
    trn.ID_STR_RT storeId,
    trn.DC_DY_BSN businessDate,
@@ -563,11 +27,12 @@ AND uec.ID_WS    = trl.ID_WS
 AND uec.ID_STR_RT=trl.ID_STR_RT
 AND uec.DC_DY_BSN=trl.DC_DY_BSN
 WHERE trn.SC_TRN   = '3'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-03 23:26:39,658 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@e1a8f49
-INFO    2020-02-03 23:28:31,985 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:28:31,988 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:28:31,994 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
+AND uec.ty_tnd   = 'MNYO' AND trn.DC_DY_BSN= '2020-02-04'
+DEBUG   2020-02-04 12:08:16,101 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@619a5ebc
+INFO    2020-02-04 12:08:16,193 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
+INFO    2020-02-04 12:09:54,901 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-04 12:09:54,901 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+DEBUG   2020-02-04 12:09:54,901 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
    trn.ID_WS wkstnId,
    trn.ID_STR_RT storeId,
    trn.DC_DY_BSN businessDate,
@@ -591,241 +56,124 @@ AND uec.ID_WS    = trl.ID_WS
 AND uec.ID_STR_RT=trl.ID_STR_RT
 AND uec.DC_DY_BSN=trl.DC_DY_BSN
 WHERE trn.SC_TRN   = '3'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-03 23:28:32,972 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2374b423
-INFO    2020-02-03 23:28:33,067 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:30:06,408 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:30:06,409 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:30:06,413 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-03 23:30:07,262 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2374b423
-INFO    2020-02-03 23:30:07,356 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
-INFO    2020-02-03 23:30:07,969 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
-INFO    2020-02-03 23:30:07,969 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:30:09,229 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:30:09,229 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:31:22,135 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:31:22,136 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:31:22,139 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165')
-INFO    2020-02-03 23:31:22,923 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2374b423
-INFO    2020-02-03 23:31:23,009 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
-INFO    2020-02-03 23:31:24,651 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
-INFO    2020-02-03 23:31:24,652 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:31:26,051 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:31:26,052 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:32:19,952 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:32:19,954 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:32:19,957 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570165  sdd')
-INFO    2020-02-03 23:32:20,854 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@6cdd08eb
-INFO    2020-02-03 23:32:20,936 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:32:36,973 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:32:36,974 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:32:36,981 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570173')
-INFO    2020-02-03 23:32:37,825 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@42de7804
-INFO    2020-02-03 23:32:37,916 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570173
-INFO    2020-02-03 23:32:39,574 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:39:22","REF_NUM":"1291174062","AMOUNT":19.0,"STORE_REF_NUM":"20171031140011570173"}],"Status":"OK"}
-INFO    2020-02-03 23:32:39,574 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:32:41,938 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:32:41,939 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570173
-INFO    2020-02-03 23:32:42,347 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:39:22","REF_NUM":"1291174062","AMOUNT":19.0,"STORE_REF_NUM":"20171031140011570173"}],"Status":"OK"}
-INFO    2020-02-03 23:32:42,348 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:32:43,536 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
-INFO    2020-02-03 23:32:43,537 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:35:02,447 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:35:02,449 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:35:02,455 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('14001157170006')
-INFO    2020-02-03 23:35:03,300 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@42de7804
-INFO    2020-02-03 23:35:03,389 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 14001157170006
-INFO    2020-02-03 23:35:03,800 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T23:54:20","REF_NUM":"1741174062","AMOUNT":15.0,"STORE_REF_NUM":"14001157170006"}],"Status":"OK"}
-INFO    2020-02-03 23:35:03,800 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:35:05,971 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:35:05,972 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 14001157170006
-INFO    2020-02-03 23:35:06,457 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T23:54:20","REF_NUM":"1741174062","AMOUNT":15.0,"STORE_REF_NUM":"14001157170006"}],"Status":"OK"}
-INFO    2020-02-03 23:35:06,457 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:35:07,044 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
-INFO    2020-02-03 23:35:07,044 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:35:51,085 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:35:51,088 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:35:51,090 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570144')
-INFO    2020-02-03 23:35:51,878 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2374b423
-INFO    2020-02-03 23:35:51,968 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570144
-INFO    2020-02-03 23:35:52,340 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-10T10:56:10","REF_NUM":"701174062","AMOUNT":9.0,"STORE_REF_NUM":"20171031140011570144"}],"Status":"OK"}
-INFO    2020-02-03 23:35:52,340 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:35:53,477 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
-INFO    2020-02-03 23:35:53,478 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
-INFO    2020-02-03 23:36:38,606 [main] com.reconcile.TaqseetReconcileUtillity  - Call the trans Query  tran D:\Extra\TaqseetReconciliationBatch\CancelledTransaction.txt
-INFO    2020-02-03 23:36:38,609 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
-INFO    2020-02-03 23:36:38,617 [main] com.reconcile.DBManager  - Executing query: SELECT trn.ai_trn transId,
-   trn.ID_WS wkstnId,
-   trn.ID_STR_RT storeId,
-   trn.DC_DY_BSN businessDate,
-  uec.RET_REF_NUM retailRefNo,
-  uec.REF_NUM refNo,
-  uec.CIVILID civilId,
-  uec.otp otp,
-  uec.TY_TND,
-  uec.AI_LN_ITM,
-  trn.SC_TRN trnId,
-  trl.MO_ITM_LN_TND amount
-FROM TR_TRN trn
-INNER JOIN UEC_TR_LTM_TAQSEET_TNDR_DTL uec
-ON uec.ai_trn    = trn.ai_trn
-AND uec.ID_WS    = trn.ID_WS
-AND uec.ID_STR_RT=trn.ID_STR_RT
-AND uec.DC_DY_BSN=trn.DC_DY_BSN
-INNER JOIN TR_LTM_TND trl
-ON uec.ai_trn    = trl.ai_trn
-AND uec.ID_WS    = trl.ID_WS
-AND uec.ID_STR_RT=trl.ID_STR_RT
-AND uec.DC_DY_BSN=trl.DC_DY_BSN
-WHERE trn.SC_TRN   = '2'
-AND uec.ty_tnd   = 'MNYO'and uec.RET_REF_NUM in ('20171031140011570154')
-INFO    2020-02-03 23:36:39,612 [main] com.reconcile.DBManager  - DB Connection created: oracle.jdbc.driver.T4CConnection@2374b423
-INFO    2020-02-03 23:36:39,725 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570154
-INFO    2020-02-03 23:36:40,110 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-12T09:17:53","REF_NUM":"901174062","AMOUNT":5.0,"STORE_REF_NUM":"20171031140011570154"}],"Status":"OK"}
-INFO    2020-02-03 23:36:40,110 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
-INFO    2020-02-03 23:36:41,200 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2891174062"}],"Status":"OK"}
-INFO    2020-02-03 23:36:41,200 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
+AND uec.ty_tnd   = 'MNYO' AND trn.DC_DY_BSN= '2020-02-04'
+DEBUG   2020-02-04 12:09:55,734 [main] com.reconcile.DBManager  - Connected to DB successfully.
+INFO    2020-02-04 12:09:55,814 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
+INFO    2020-02-05 20:56:24,289 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-05 20:56:24,331 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+INFO    2020-02-05 20:56:26,712 [main] com.reconcile.TaqseetReconcileUtillity  - No Transaction Found.
+INFO    2020-02-05 20:56:26,712 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------
+INFO    2020-02-05 21:54:58,541 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-05 21:54:58,568 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+INFO    2020-02-05 21:55:05,727 [main] com.reconcile.DBManager  - 20171031140011570173
+INFO    2020-02-05 21:55:10,126 [main] com.reconcile.DBManager  - 20171031140011570178
+INFO    2020-02-05 21:55:13,503 [main] com.reconcile.DBManager  - 20171031140011570165
+INFO    2020-02-05 21:55:16,101 [main] com.reconcile.DBManager  - 20171031140011570169
+INFO    2020-02-05 21:55:18,584 [main] com.reconcile.DBManager  - 20171031140011570173
+INFO    2020-02-05 21:55:20,325 [main] com.reconcile.DBManager  - 14001157170006
+INFO    2020-02-05 21:55:22,012 [main] com.reconcile.DBManager  - 
+ERROR   2020-02-05 21:55:22,814 [main] com.reconcile.DBManager  - null
+INFO    2020-02-05 21:55:46,077 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570173
+INFO    2020-02-05 22:25:06,062 [main] com.reconcile.TaqseetReconcileUtillity  - Call the Date QueryByDate
+INFO    2020-02-05 22:25:06,069 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------Start---------------------
+INFO    2020-02-05 22:25:13,459 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570173
+INFO    2020-02-05 22:25:19,288 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:39:22","REF_NUM":"1291174062","AMOUNT":19.0,"STORE_REF_NUM":"20171031140011570173"}],"Status":"OK"}
+INFO    2020-02-05 22:25:19,288 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:20,734 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:20,734 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570178
+INFO    2020-02-05 22:25:20,996 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-16T23:31:02","REF_NUM":"1431174062","AMOUNT":10.0,"STORE_REF_NUM":"20171031140011570178"}],"Status":"OK"}
+INFO    2020-02-05 22:25:20,996 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:22,044 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:22,044 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570165
+INFO    2020-02-05 22:25:22,297 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-13T22:58:28","REF_NUM":"1191174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570165"}],"Status":"OK"}
+INFO    2020-02-05 22:25:22,297 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:23,612 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:23,612 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570169
+INFO    2020-02-05 22:25:23,890 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:02:36","REF_NUM":"1221174062","AMOUNT":20.0,"STORE_REF_NUM":"20171031140011570169"}],"Status":"OK"}
+INFO    2020-02-05 22:25:23,891 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:24,354 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:24,354 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570173
+INFO    2020-02-05 22:25:24,606 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:39:22","REF_NUM":"1291174062","AMOUNT":19.0,"STORE_REF_NUM":"20171031140011570173"}],"Status":"OK"}
+INFO    2020-02-05 22:25:24,606 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:25,024 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:25,024 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 14001157170006
+INFO    2020-02-05 22:25:25,983 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T23:54:20","REF_NUM":"1741174062","AMOUNT":15.0,"STORE_REF_NUM":"14001157170006"}],"Status":"OK"}
+INFO    2020-02-05 22:25:25,983 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:26,955 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:26,955 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570212
+INFO    2020-02-05 22:25:27,243 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-19T19:29:18","REF_NUM":"2171174062","AMOUNT":20.0,"STORE_REF_NUM":"20171031140011570212"}],"Status":"OK"}
+INFO    2020-02-05 22:25:27,243 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:30,126 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:30,126 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570215
+INFO    2020-02-05 22:25:31,393 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-21T11:17:18","REF_NUM":"2471174062","AMOUNT":18.0,"STORE_REF_NUM":"20171031140011570215"}],"Status":"OK"}
+INFO    2020-02-05 22:25:31,393 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:32,281 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The amount greater than original retail amount"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"2\"}"],"Code":["ERR_GREATER"]}}
+INFO    2020-02-05 22:25:32,281 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570156
+INFO    2020-02-05 22:25:32,557 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-12T11:31:59","REF_NUM":"931174062","AMOUNT":5.0,"STORE_REF_NUM":"20171031140011570156"}],"Status":"OK"}
+INFO    2020-02-05 22:25:32,561 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:34,115 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2911174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:34,286 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570154
+INFO    2020-02-05 22:25:34,541 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-12T09:17:53","REF_NUM":"901174062","AMOUNT":5.0,"STORE_REF_NUM":"20171031140011570154"}],"Status":"OK"}
+INFO    2020-02-05 22:25:34,541 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:35,539 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:35,539 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570191
+INFO    2020-02-05 22:25:35,800 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-17T23:44:41","REF_NUM":"1481174062","AMOUNT":22.0,"STORE_REF_NUM":"20171031140011570191"}],"Status":"OK"}
+INFO    2020-02-05 22:25:35,800 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:36,177 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:36,177 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570210
+INFO    2020-02-05 22:25:36,428 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-19T19:24:23","REF_NUM":"2161174062","AMOUNT":20.0,"STORE_REF_NUM":"20171031140011570210"}],"Status":"OK"}
+INFO    2020-02-05 22:25:36,429 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:37,808 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2921174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:37,857 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570169
+INFO    2020-02-05 22:25:38,131 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-14T00:02:36","REF_NUM":"1221174062","AMOUNT":20.0,"STORE_REF_NUM":"20171031140011570169"}],"Status":"OK"}
+INFO    2020-02-05 22:25:38,131 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:39,343 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:39,343 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570191
+INFO    2020-02-05 22:25:39,593 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-17T23:44:41","REF_NUM":"1481174062","AMOUNT":22.0,"STORE_REF_NUM":"20171031140011570191"}],"Status":"OK"}
+INFO    2020-02-05 22:25:39,593 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:40,568 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The amount greater than original retail amount"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"2\"}"],"Code":["ERR_GREATER"]}}
+INFO    2020-02-05 22:25:40,569 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570205
+INFO    2020-02-05 22:25:40,807 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-19T00:09:01","REF_NUM":"1761174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570205"}],"Status":"OK"}
+INFO    2020-02-05 22:25:40,807 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:41,804 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2931174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:41,854 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : REF_EXT_111
+INFO    2020-02-05 22:25:42,111 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
+INFO    2020-02-05 22:25:42,112 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : null
+INFO    2020-02-05 22:25:42,355 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[],"Status":"OK"}
+INFO    2020-02-05 22:25:42,355 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 14001157170006
+INFO    2020-02-05 22:25:42,970 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T23:54:20","REF_NUM":"1741174062","AMOUNT":15.0,"STORE_REF_NUM":"14001157170006"}],"Status":"OK"}
+INFO    2020-02-05 22:25:42,970 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:43,399 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:43,399 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570209
+INFO    2020-02-05 22:25:43,677 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-19T19:23:46","REF_NUM":"2151174062","AMOUNT":34.0,"STORE_REF_NUM":"20171031140011570209"}],"Status":"OK"}
+INFO    2020-02-05 22:25:43,677 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:44,663 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2941174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:44,698 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570215
+INFO    2020-02-05 22:25:47,451 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-21T11:17:18","REF_NUM":"2471174062","AMOUNT":18.0,"STORE_REF_NUM":"20171031140011570215"}],"Status":"OK"}
+INFO    2020-02-05 22:25:47,451 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:47,907 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["The Amount is negative"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"3\"}"],"Code":["ERR_NEGATIVE"]}}
+INFO    2020-02-05 22:25:47,907 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570218
+INFO    2020-02-05 22:25:48,176 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-26T10:47:20","REF_NUM":"2611174062","AMOUNT":5.0,"STORE_REF_NUM":"20171031140011570218"}],"Status":"OK"}
+INFO    2020-02-05 22:25:48,176 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:49,067 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:49,067 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570180
+INFO    2020-02-05 22:25:49,318 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-16T23:40:19","REF_NUM":"1441174062","AMOUNT":2.0,"STORE_REF_NUM":"20171031140011570180"}],"Status":"OK"}
+INFO    2020-02-05 22:25:49,318 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:50,772 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2951174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:50,840 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570195
+INFO    2020-02-05 22:25:51,167 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T13:54:48","REF_NUM":"1671174062","AMOUNT":10.0,"STORE_REF_NUM":"20171031140011570195"}],"Status":"OK"}
+INFO    2020-02-05 22:25:51,167 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:52,391 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2961174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:52,441 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570212
+INFO    2020-02-05 22:25:52,743 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-19T19:29:18","REF_NUM":"2171174062","AMOUNT":20.0,"STORE_REF_NUM":"20171031140011570212"}],"Status":"OK"}
+INFO    2020-02-05 22:25:52,744 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:53,802 [main] com.reconcile.PosServiceUtil  - {"StatusCode":400,"Status":"BadRequest","Validation":{"Message":["RefNumber is not correct"],"ReturnObject":["{\"RefNumber\":\"null\",\"Status\":\"1\"}"],"Code":["ERR_REF"]}}
+INFO    2020-02-05 22:25:53,802 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570152
+INFO    2020-02-05 22:25:55,228 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-10T11:49:10","REF_NUM":"711174062","AMOUNT":19.0,"STORE_REF_NUM":"20171031140011570152"}],"Status":"OK"}
+INFO    2020-02-05 22:25:55,228 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:56,696 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2971174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:56,741 [main] com.reconcile.PosServiceUtil  - Calling getTransactionStatus service : 20171031140011570196
+INFO    2020-02-05 22:25:57,230 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"AMND_DATE":"2020-01-18T23:01:44","REF_NUM":"1731174062","AMOUNT":4.0,"STORE_REF_NUM":"20171031140011570196"}],"Status":"OK"}
+INFO    2020-02-05 22:25:57,230 [main] com.reconcile.PosServiceUtil  - Calling PostTransactionReversal service...............
+INFO    2020-02-05 22:25:58,602 [main] com.reconcile.PosServiceUtil  - {"StatusCode":200,"Data":[{"Status":"0","RefNumber":"2981174062"}],"Status":"OK"}
+INFO    2020-02-05 22:25:58,641 [main] com.reconcile.TaqseetReconcileUtillity  - ----------------End---------------------

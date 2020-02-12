@@ -6,6 +6,7 @@ package com.reconcile;
  */
 public class CancelledTransactionDAO {
 	
+	private int sequenceId;
 	private String civilId;
 	private double reverseAmt;
 	private int otp;
@@ -71,6 +72,12 @@ public class CancelledTransactionDAO {
 	}
 	public void setBusinesDate(String businesDate) {
 		this.businesDate = businesDate;
+	}
+	public int getSequenceId() {
+		return sequenceId;
+	}
+	public void setSequenceId(int sequenceId) {
+		this.sequenceId = sequenceId;
 	}
 
 }

@@ -1,0 +1,76 @@
+package com.reconcile;
+
+/**
+ * @author RetailOMatrix
+ * This is a DAO class to map the result from DB.
+ */
+public class CancelledTransactionDAO {
+	
+	private String civilId;
+	private double reverseAmt;
+	private int otp;
+	private String retailRefNo;
+	private String refNo;
+	private String storeId;
+	private String registerId;
+	private int transactionId;
+	private String businesDate;
+	
+	
+	public String getCivilId() {
+		return civilId;
+	}
+	public void setCivilId(String civilId) {
+		this.civilId = civilId;
+	}
+	public double getReverseAmt() {
+		return reverseAmt;
+	}
+	public void setReverseAmt(double reverseAmt) {
+		this.reverseAmt = reverseAmt;
+	}
+	public int getOtp() {
+		return otp;
+	}
+	public void setOtp(int otp) {
+		this.otp = otp;
+	}
+	public String getRetailRefNo() {
+		return retailRefNo;
+	}
+	public void setRetailRefNo(String retailRefNo) {
+		this.retailRefNo = retailRefNo;
+	}
+	
+	public String getRefNo() {
+		return refNo;
+	}
+	public void setRefNo(String refNo) {
+		this.refNo = refNo;
+	}
+	public String getStoreId() {
+		return storeId;
+	}
+	public void setStoreId(String storeId) {
+		this.storeId = storeId;
+	}
+	public String getRegisterId() {
+		return registerId;
+	}
+	public void setRegisterId(String registerId) {
+		this.registerId = registerId;
+	}
+	public int getTransactionId() {
+		return transactionId;
+	}
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+	public String getBusinesDate() {
+		return businesDate;
+	}
+	public void setBusinesDate(String businesDate) {
+		this.businesDate = businesDate;
+	}
+
+}
