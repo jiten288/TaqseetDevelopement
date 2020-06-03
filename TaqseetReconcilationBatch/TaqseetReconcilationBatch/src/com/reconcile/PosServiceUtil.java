@@ -77,13 +77,14 @@ public class PosServiceUtil {
 		return conn;
 	}
 
-	public Boolean getTransactionStatus(String retailRefNo) {
+	public Boolean getTransactionStatus(String retailRefNo, String storeId) {
 		try {
 			logger.info("Calling getTransactionStatus service : " + retailRefNo);
 			StringBuilder url = new StringBuilder();
 			url.append(this.getProperty("service.host"));
 			url.append(this.getProperty("transactionStatus.endpoint"));
 			url.append("/" + retailRefNo);
+			url.append("/" + storeId);
 			url.append("/" + this.getProperty("apiKey"));
 
 			org.json.simple.JSONObject response = this.callPosService(url.toString(), null);

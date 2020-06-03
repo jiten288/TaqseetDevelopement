@@ -92,7 +92,7 @@ public class TaqseetReconcileUtillity {
 
 		PosServiceUtil service = new PosServiceUtil();
 		for (CancelledTransactionDAO cancelledTransaction : cancelledTrans) {
-			boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo());
+			boolean transactionStatus = service.getTransactionStatus(cancelledTransaction.getRetailRefNo(),cancelledTransaction.getStoreId());
 			if (transactionStatus) {
 				service.callPostTransactionReversal(cancelledTransaction);
 			}
